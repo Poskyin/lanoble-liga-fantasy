@@ -100,16 +100,23 @@ function calcular(jornadas) {
   for (const j of numeros) {
     const lista = porJornada.get(j);
     const maxPos = Math.max(...lista.map(f => f.posicion));
+    // En las jornadas provisionales todavía no se cobra nada: la multa queda pendiente.
+    const cobra = !provisionales.has(j);
     for (const f of lista) {
       const s = stats.get(f.m.n);
       s.jugadas++;
       f.multa = 0;
+      f.pendiente = !cobra;
       if (f.posicion === 1) s.ganadas++;
-      if (f.posicion === maxPos) { s.ultimo++; s.clasificacion += 1; f.multa += 1; }
-      else if (f.posicion === maxPos - 1) { s.penultimo++; s.clasificacion += 0.5; f.multa += 0.5; }
-      if (f.puntos === 0) {
-        s.noPuntua += 1; f.multa += 1; f.noPuntua = true;
-        indebidas.push({ jornada: j, m: f.m, concepto: `No puntuó en la jornada ${j} (alineación indebida)`, importe: 1, provisional: provisionales.has(j) });
+      if (f.posicion === maxPos) f.multa += 1;
+      else if (f.posicion === maxPos - 1) f.multa += 0.5;
+      if (f.puntos === 0) { f.multa += 1; f.noPuntua = true; }
+      if (!cobra) continue;
+      if (f.posicion === maxPos) { s.ultimo++; s.clasificacion += 1; }
+      else if (f.posicion === maxPos - 1) { s.penultimo++; s.clasificacion += 0.5; }
+      if (f.noPuntua) {
+        s.noPuntua += 1;
+        indebidas.push({ jornada: j, m: f.m, concepto: `No puntuó en la jornada ${j} (alineación indebida)`, importe: 1 });
       }
     }
   }
@@ -283,6 +290,7 @@ function pintarJornadas(c, calendario) {
         <tbody>${lista.map(f => {
           let tag = '';
           if (f.posicion === 1) tag = '<span class="etiqueta etiqueta-oro">Gana la jornada</span>';
+          else if (f.multa && f.pendiente) tag = `<span class="etiqueta etiqueta-prov" title="Se cobra cuando la jornada sea definitiva">Multa pendiente: ${euros(f.multa)}</span>`;
           else if (f.multa) tag = `<span class="etiqueta etiqueta-lacre"${f.noPuntua ? ' title="Multa por la posición más 1 € por no puntuar"' : ''}>Paga ${euros(f.multa)}${f.noPuntua ? ', no puntuó' : ''}</span>`;
           return `<tr><td class="num">${f.posicion}</td><td>${celdaManager(f.m)}</td><td class="num puntos">${f.puntos}</td><td>${tag}</td></tr>`;
         }).join('')}</tbody>
@@ -429,7 +437,7 @@ function pintarTesoreria(c, datos) {
     <td class="num">${euros(Math.max(0, suma('debe')))}</td>
   </tr>`;
   $('#nota-provisional-multas').textContent = c.provisionales.size
-    ? `Incluye las jornadas ${[...c.provisionales].join(' y ')}, que aún pueden cambiar.` : '';
+    ? `Las jornadas ${[...c.provisionales].join(' y ')} no cuentan hasta que sean definitivas.` : '';
 
   const cuando = x => x.jornada ? `J${x.jornada}` : x.fecha ? limpiar(fFecha.format(deMadrid(x.fecha))) : '–';
   const extra = [
@@ -440,7 +448,7 @@ function pintarTesoreria(c, datos) {
     ? extra.map(x => `<tr>
         <td>${cuando(x)}</td>
         <td>${celdaManager(x.m)}</td>
-        <td>${esc(x.concepto)}${x.provisional ? ' <span class="etiqueta etiqueta-prov">Provisional</span>' : ''}</td>
+        <td>${esc(x.concepto)}</td>
         <td class="num">${euros(x.importe)}</td>
       </tr>`).join('')
     : '<tr><td colspan="4">No hay sanciones.</td></tr>';

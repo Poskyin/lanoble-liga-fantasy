@@ -39,6 +39,6 @@ Los usuarios de la app se asocian a cada mánager en `MIEMBROS`, al principio de
 
 ## Multas
 
-- Automáticas, a partir de las jornadas: último 1 €, penúltimo 0,50 €, y 1 € más a quien haga 0 puntos (alineación indebida).
+- Automáticas, a partir de las jornadas: último 1 €, penúltimo 0,50 €, y 1 € más a quien haga 0 puntos (alineación indebida). Las jornadas marcadas como provisionales no generan multa hasta que se pongan en `No`.
 - A mano: una fila en `Sanciones` con Fecha (opcional), Mánager, Concepto e Importe.
 - Pagos: una fila en `Pagos` con Fecha, Mánager, Importe y Nota. La web resta lo pagado de lo que debe cada uno.
