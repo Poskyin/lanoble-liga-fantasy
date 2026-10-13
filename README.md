@@ -4,7 +4,7 @@ Web de la liga: clasificación, jornadas, clausulazos, calendario de LaLiga y Ca
 
 ## De dónde salen los datos
 
-La web lee dos hojas de Google cada vez que alguien la abre (con unos minutos de caché):
+La web lee tres hojas de Google cada vez que alguien la abre (con unos minutos de caché):
 
 | Qué | Hoja | Pestaña |
 |---|---|---|
