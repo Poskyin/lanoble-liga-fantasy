@@ -244,6 +244,11 @@ p { margin: 0; }
 .tabla-historial tr.destacado td { background: rgba(200, 162, 74, .1); }
 .boton-texto { margin-top: .9rem; font: inherit; font-weight: 700; color: var(--oro-claro); background: none; border: 0; padding: .3rem 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 
+/* Botón dorado (fuera del pergamino) */
+.boton.boton-oro { background: var(--oro); color: var(--azur); border-color: var(--oro); }
+.boton.boton-oro:hover { background: var(--oro-claro); }
+.nota-ventana { margin: -.6rem 0 1.2rem; }
+
 /* Tesorería */
 .cuentas { margin: 0 0 .4rem; max-width: none; }
 .cuentas dd { font-size: 1.35rem; font-weight: 700; font-variant-numeric: tabular-nums lining-nums; }
