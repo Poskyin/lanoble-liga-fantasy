@@ -33,7 +33,9 @@ En `NLF – Jornadas`, cinco filas nuevas con el orden que da la app:
 - `api/datos.js`: función de Vercel que lee las hojas y devuelve JSON.
 - `data/calendario.json`: calendario de LaLiga 2026/27 por fin de semana.
 - `data/respaldo.json`: copia de seguridad de los datos.
-- `docs/`: Cartas Magnas en PDF.
+- `data/anexos.json`: anexos de la Carta Magna (modificaciones, jurisprudencia y votaciones).
+- `docs/`: Cartas Magnas en PDF. `docs/fuente/` guarda el texto de la 2026/27 sin anexos.
+- `scripts/anexos_pdf.py`: une ese texto con los anexos y genera `docs/carta-magna-2026-27.pdf`.
 
 Los usuarios de la app se asocian a cada mánager en `MIEMBROS`, al principio de `assets/app.js`.
 
@@ -46,3 +48,13 @@ Los usuarios de la app se asocian a cada mánager en `MIEMBROS`, al principio de
 ## Al cambiar el código
 
 Si se toca `assets/app.js` o `assets/styles.css`, sube el número `?v=` con el que se cargan en `index.html`. Así los móviles que ya tenían la web abierta no se quedan con la versión vieja.
+
+## Anexos de la Carta Magna
+
+Se editan en `data/anexos.json`. Después hay que regenerar el PDF:
+
+```
+python3 scripts/anexos_pdf.py
+```
+
+Numeración: «Modificación xx/ddmmY» (número de orden, día, mes y último dígito del año), «Jurisprudencia NN» y «Votación NN».

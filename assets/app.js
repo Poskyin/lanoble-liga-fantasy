@@ -499,6 +499,53 @@ function pintarEstado(datos) {
     : `Ahora mismo no se pueden leer ${copia.map(k => nombres[k]).join(', ')} de la hoja; se muestra la copia del ${limpiar(fFecha.format(deMadrid(datos.copiaDe)))}.`;
 }
 
+// ---------- Anexos: modificaciones, jurisprudencia y votaciones ----------
+const MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+function fechaLarga(f) {
+  if (!f) return '';
+  const [y, m, d] = f.split('-').map(Number);
+  if (!m) return String(y);
+  return d ? `${d} de ${MESES[m - 1]} de ${y}` : `${MESES[m - 1]} de ${y}`;
+}
+const parrafos = t => String(t || '').split(/\n\s*\n/).map(p => `<p>${esc(p.trim())}</p>`).join('');
+
+function pintarAnexos(anexos) {
+  const mods = anexos.modificaciones || [], juris = anexos.jurisprudencia || [], votos = anexos.votaciones || [];
+  const etiquetaArt = arts => (arts || []).map(a => `<span class="etiqueta etiqueta-oro">${esc(a)}</span>`).join(' ');
+
+  $('#lista-modificaciones').innerHTML = (mods.length
+    ? mods.map(x => `<article class="ficha-anexo">
+        <header><h4>${esc(x.codigo)}. ${esc(x.titulo)}</h4><p>${fechaLarga(x.fecha)} ${etiquetaArt(x.articulos)}</p></header>
+        <div class="texto-legal">${parrafos(x.texto)}</div>
+        ${x.votacion ? `<p class="nota">Aprobada en ${esc(x.votacion)}.</p>` : ''}
+      </article>`).join('')
+    : '<p class="vacio">Ninguna modificación desde el Decreto de Refundación.</p>')
+    + (anexos.nota_historica ? `<p class="nota">${esc(anexos.nota_historica)}</p>` : '');
+
+  $('#lista-jurisprudencia').innerHTML = juris.length
+    ? juris.map(x => `<article class="ficha-anexo">
+        <header><h4>${esc(x.codigo)}. ${esc(x.titulo)}</h4><p>${fechaLarga(x.fecha)} ${etiquetaArt(x.articulos)}</p></header>
+        <div class="texto-legal">${parrafos(x.criterio)}</div>
+        ${x.motivo ? `<p class="nota"><strong>Por qué:</strong> ${esc(x.motivo)}</p>` : ''}
+        ${x.origen ? `<p class="nota">${esc(x.origen)}${x.votacion ? `, ${esc(x.votacion)}` : ''}.</p>` : ''}
+      </article>`).join('')
+    : '<p class="vacio">Todavía no hay jurisprudencia.</p>';
+
+  const claseVoto = v => ({ 'a favor': 'si', 'en contra': 'no' }[norm(v)] || 'otro');
+  $('#lista-votaciones').innerHTML = votos.length
+    ? votos.slice().reverse().map(x => `<article class="ficha-anexo">
+        <header><h4>${esc(x.codigo)}. ${esc(x.asunto)}</h4>
+          <p>${fechaLarga(x.fecha)} <span class="etiqueta ${norm(x.resultado) === 'aprobada' ? 'etiqueta-oro' : 'etiqueta-lacre'}">${esc(x.resultado || 'Pendiente')}</span></p></header>
+        ${x.mayoria ? `<p class="nota">Mayoría necesaria: ${esc(x.mayoria)}.</p>` : ''}
+        <ul class="votos">${Object.entries(x.votos || {}).map(([quien, v]) => {
+          const m = buscarMiembro(quien);
+          return `<li><span class="manager-chapa" style="background:${m ? m.color : 'var(--texto-3)'}"></span>${esc(m ? m.nombre : quien)} <b class="voto-${claseVoto(v)}">${esc(v)}</b></li>`;
+        }).join('')}</ul>
+        ${x.relacionada ? `<p class="nota">Da lugar a: ${esc(x.relacionada)}.</p>` : ''}
+      </article>`).join('')
+    : '<p class="vacio">No hay votaciones registradas todavía.</p>';
+}
+
 // ---------- App de Shiny para apuntar clausulazos ----------
 // Solo se carga al abrir el panel y se descarga al cerrarlo, para no gastar horas de shinyapps.io.
 const URL_SHINY = 'https://poskyin.shinyapps.io/appnlf/';
@@ -549,5 +596,6 @@ function seguro(nombre, fn) {
   seguro('tesorería', () => pintarTesoreria(c, datos));
   seguro('calendario', () => pintarCalendario(c, datos.calendario));
   seguro('miembros', () => pintarMiembros());
+  getJson('/data/anexos.json').then(a => seguro('anexos', () => pintarAnexos(a))).catch(e => console.error('Anexos:', e));
   seguro('estado', () => pintarEstado(datos));
 })();

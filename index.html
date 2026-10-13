@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/styles.css?v=5">
+  <link rel="stylesheet" href="/assets/styles.css?v=6">
 </head>
 <body>
   <a class="saltar" href="#clasificacion">Ir a la clasificación</a>
@@ -29,6 +29,7 @@
       <a href="#tesoreria">Tesorería</a>
       <a href="#calendario">Calendario</a>
       <a href="#carta-magna">Carta Magna</a>
+      <a href="#anexos">Anexos</a>
     </div>
   </nav>
 
@@ -208,7 +209,7 @@
         <h2>Carta Magna</h2>
         <p class="entradilla">Las normas que rigen la liga. La de esta temporada es el Decreto de Refundación, que une la Carta Magna original con todas las modificaciones aprobadas.</p>
         <div class="descargas">
-          <a class="boton" href="/docs/carta-magna-2026-27.pdf" download>Descargar la Carta Magna 2026/27 (PDF)</a>
+          <a class="boton" href="/docs/carta-magna-2026-27.pdf" download>Descargar la Carta Magna 2026/27 con anexos (PDF)</a>
           <a class="boton boton-secundario" href="/docs/carta-magna-2025-26.pdf" download>Carta Magna fundacional 2025/26 (PDF)</a>
         </div>
 
@@ -236,6 +237,30 @@
         </div>
       </div>
     </section>
+    <section id="anexos" class="seccion">
+      <div class="seccion-cab">
+        <h2>Anexos de la Carta Magna</h2>
+        <p class="nota">Modificaciones aprobadas, jurisprudencia y votaciones. Van también al final del PDF de la Carta Magna.</p>
+      </div>
+
+      <div class="anexo">
+        <h3>Anexo I. Modificaciones</h3>
+        <p class="nota">Cada modificación se registra como «Modificación xx/yyyyy»: número de orden y fecha de aprobación (día, mes y último dígito del año).</p>
+        <div id="lista-modificaciones"></div>
+      </div>
+
+      <div class="anexo">
+        <h3>Anexo II. Jurisprudencia</h3>
+        <p class="nota">Cómo se interpretan los artículos cuyo texto no es claro.</p>
+        <div id="lista-jurisprudencia"></div>
+      </div>
+
+      <div class="anexo">
+        <h3>Anexo III. Votaciones</h3>
+        <p class="nota">Mayoría cualificada: 75 %, es decir, 4 de 5. Las nuevas incorporaciones y las nuevas faltas requieren unanimidad.</p>
+        <div id="lista-votaciones"></div>
+      </div>
+    </section>
   </main>
 
   <footer class="pie">
@@ -245,6 +270,6 @@
   </footer>
 
   <div class="tooltip" id="tooltip" role="status" hidden></div>
-  <script src="/assets/app.js?v=5" type="module"></script>
+  <script src="/assets/app.js?v=6" type="module"></script>
 </body>
 </html>
