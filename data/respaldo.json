@@ -877,5 +877,14 @@
    "maximo": 4
   }
  ],
- "copiaDe": "2026-10-13"
+ "copiaDe": "2026-10-13",
+ "sanciones": [
+  {
+   "fecha": "",
+   "manager": "Alejandro Antequera",
+   "concepto": "Superar el límite de clausulazos",
+   "importe": 1
+  }
+ ],
+ "pagos": []
 }

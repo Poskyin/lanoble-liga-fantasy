@@ -26,6 +26,7 @@
       <a href="#clasificacion">Clasificación</a>
       <a href="#jornadas">Jornadas</a>
       <a href="#clausulazos">Clausulazos</a>
+      <a href="#tesoreria">Tesorería</a>
       <a href="#calendario">Calendario</a>
       <a href="#carta-magna">Carta Magna</a>
     </div>
@@ -85,21 +86,10 @@
       <div class="selector" id="selector-jornada" role="tablist" aria-label="Elegir jornada"></div>
       <div class="jornada-detalle" id="jornada-detalle" role="tabpanel"></div>
 
-      <div class="dos-columnas">
-        <div>
-          <h3>Multas por clasificación</h3>
-          <p class="nota">1 € el último y 0,50 € el penúltimo de cada jornada. Hay 30 días para pagar al tesorero.</p>
-          <table class="tabla tabla-compacta" id="tabla-multas">
-            <thead><tr><th scope="col">Mánager</th><th scope="col" class="num">Último</th><th scope="col" class="num">Penúltimo</th><th scope="col" class="num">Total</th></tr></thead>
-            <tbody></tbody>
-            <tfoot></tfoot>
-          </table>
-        </div>
-        <div>
-          <h3>Premio a la constancia</h3>
-          <p class="nota">Se lleva el 10 % del bote quien gane más jornadas.</p>
-          <ol class="constancia" id="constancia"></ol>
-        </div>
+      <div class="constancia-bloque">
+        <h3>Premio a la constancia</h3>
+        <p class="nota">Se lleva el 10 % del bote quien gane más jornadas.</p>
+        <ol class="constancia" id="constancia"></ol>
       </div>
     </section>
 
@@ -153,6 +143,50 @@
       <button class="boton-texto" id="ver-mas" type="button" hidden>Ver todos</button>
     </section>
 
+    <section id="tesoreria" class="seccion">
+      <div class="seccion-cab">
+        <h2>Tesorería</h2>
+        <p class="nota">Multas, sanciones y pagos. Todo se paga al tesorero, Alejandro Antequera, en un plazo de 30 días.</p>
+      </div>
+      <dl class="avisos cuentas" id="cuentas-resumen"></dl>
+
+      <h3>Cuentas por mánager</h3>
+      <p class="nota">Último de la jornada, 1 €; penúltimo, 0,50 €. Quien no puntúa paga además 1 € por alineación indebida, así que si queda último paga el doble. <span id="nota-provisional-multas"></span></p>
+      <div class="tabla-envoltura">
+        <table class="tabla tabla-compacta" id="tabla-cuentas">
+          <thead>
+            <tr>
+              <th scope="col">Mánager</th>
+              <th scope="col" class="num ocultable">Clasificación</th>
+              <th scope="col" class="num ocultable">No puntuar</th>
+              <th scope="col" class="num ocultable">Sanciones</th>
+              <th scope="col" class="num">Total</th>
+              <th scope="col" class="num">Pagado</th>
+              <th scope="col" class="num">Debe</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot></tfoot>
+        </table>
+      </div>
+
+      <div class="dos-columnas">
+        <div>
+          <h3>Sanciones y alineaciones indebidas</h3>
+          <div class="tabla-envoltura">
+            <table class="tabla tabla-compacta" id="lista-sanciones">
+              <thead><tr><th scope="col">Cuándo</th><th scope="col">Mánager</th><th scope="col">Motivo</th><th scope="col" class="num">Importe</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <h3>Pagos al tesorero</h3>
+          <div id="lista-pagos"></div>
+        </div>
+      </div>
+    </section>
+
     <section id="calendario" class="seccion">
       <div class="seccion-cab">
         <h2>Calendario de LaLiga</h2>
@@ -181,7 +215,7 @@
               <dt>Porteros</dt>
               <dd>Como mucho 2 al empezar cada jornada. Clausular un portero teniendo ya 2 es falta grave.</dd>
               <dt>Multas</dt>
-              <dd>Último de la jornada, 1 €; penúltimo, 0,50 €; alineación indebida, 1 €.</dd>
+              <dd>Último de la jornada, 1 €; penúltimo, 0,50 €. Quien no puntúa paga además 1 € por alineación indebida. Pasarse del límite de clausulazos, 1 €.</dd>
               <dt>Premios</dt>
               <dd>Campeón y subcampeón de invierno recuperan la cuota de la app. Al final: 55 % para el campeón, 25 % el segundo, 10 % el tercero y 10 % quien más jornadas gane.</dd>
             </dl>

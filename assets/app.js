@@ -64,9 +64,12 @@ async function cargar() {
   let vivo = null;
   try { vivo = await getJson('/api/datos'); } catch { /* sin servidor: usamos la copia */ }
   const datos = { calendario, fuentes: {} };
-  for (const k of ['jornadas', 'clausulazos', 'periodos']) {
-    if (vivo && Array.isArray(vivo[k]) && vivo[k].length) { datos[k] = vivo[k]; datos.fuentes[k] = 'hoja'; }
-    else { datos[k] = respaldo[k]; datos.fuentes[k] = 'copia'; }
+  for (const k of ['jornadas', 'clausulazos', 'periodos', 'sanciones', 'pagos']) {
+    // las listas que pueden estar vacías de verdad (sanciones, pagos) se aceptan vacías si la hoja se leyó bien
+    const leida = vivo && Array.isArray(vivo[k]) && vivo.fuentes?.[k] === 'hoja';
+    const vale = leida && (vivo[k].length || ['sanciones', 'pagos'].includes(k));
+    if (vale) { datos[k] = vivo[k]; datos.fuentes[k] = 'hoja'; }
+    else { datos[k] = respaldo[k] || []; datos.fuentes[k] = 'copia'; }
   }
   datos.copiaDe = respaldo.copiaDe;
   datos.actualizado = vivo?.actualizado;
@@ -91,19 +94,26 @@ function calcular(jornadas) {
     historia.push({ j, orden });
   }
 
-  const stats = new Map(MIEMBROS.map(m => [m.n, { m, ganadas: 0, ultimo: 0, penultimo: 0, multas: 0, jugadas: 0 }]));
+  // Multas automáticas: último 1 €, penúltimo 0,50 €; quien no puntúa paga además 1 € (alineación indebida).
+  const stats = new Map(MIEMBROS.map(m => [m.n, { m, ganadas: 0, ultimo: 0, penultimo: 0, clasificacion: 0, noPuntua: 0, jugadas: 0 }]));
+  const indebidas = [];
   for (const j of numeros) {
     const lista = porJornada.get(j);
     const maxPos = Math.max(...lista.map(f => f.posicion));
     for (const f of lista) {
       const s = stats.get(f.m.n);
       s.jugadas++;
+      f.multa = 0;
       if (f.posicion === 1) s.ganadas++;
-      if (f.posicion === maxPos) { s.ultimo++; s.multas += 1; }
-      else if (f.posicion === maxPos - 1) { s.penultimo++; s.multas += 0.5; }
+      if (f.posicion === maxPos) { s.ultimo++; s.clasificacion += 1; f.multa += 1; }
+      else if (f.posicion === maxPos - 1) { s.penultimo++; s.clasificacion += 0.5; f.multa += 0.5; }
+      if (f.puntos === 0) {
+        s.noPuntua += 1; f.multa += 1; f.noPuntua = true;
+        indebidas.push({ jornada: j, m: f.m, concepto: `No puntuó en la jornada ${j} (alineación indebida)`, importe: 1, provisional: provisionales.has(j) });
+      }
     }
   }
-  return { numeros, ultima, porJornada, provisionales, historia, stats };
+  return { numeros, ultima, porJornada, provisionales, historia, stats, indebidas };
 }
 
 // ---------- Portada ----------
@@ -273,8 +283,7 @@ function pintarJornadas(c, calendario) {
         <tbody>${lista.map(f => {
           let tag = '';
           if (f.posicion === 1) tag = '<span class="etiqueta etiqueta-oro">Gana la jornada</span>';
-          else if (f.posicion === n) tag = '<span class="etiqueta etiqueta-lacre">Paga 1 €</span>';
-          else if (f.posicion === n - 1) tag = '<span class="etiqueta etiqueta-lacre">Paga 0,50 €</span>';
+          else if (f.multa) tag = `<span class="etiqueta etiqueta-lacre"${f.noPuntua ? ' title="Multa por la posición más 1 € por no puntuar"' : ''}>Paga ${euros(f.multa)}${f.noPuntua ? ', no puntuó' : ''}</span>`;
           return `<tr><td class="num">${f.posicion}</td><td>${celdaManager(f.m)}</td><td class="num puntos">${f.puntos}</td><td>${tag}</td></tr>`;
         }).join('')}</tbody>
       </table>`;
@@ -288,13 +297,6 @@ function pintarJornadas(c, calendario) {
     bs[k].focus(); mostrar(+bs[k].dataset.j);
   });
   if (c.ultima) mostrar(c.ultima);
-
-  // Multas
-  const st = [...c.stats.values()].sort((a, b) => b.multas - a.multas || a.m.n - b.m.n);
-  $('#tabla-multas tbody').innerHTML = st.map(s =>
-    `<tr><td>${celdaManager(s.m)}</td><td class="num">${s.ultimo}</td><td class="num">${s.penultimo}</td><td class="num">${euros(s.multas)}</td></tr>`).join('');
-  const total = st.reduce((t, s) => t + s.multas, 0);
-  $('#tabla-multas tfoot').innerHTML = `<tr><td colspan="3">Total al bote${c.provisionales.size ? ' (incluye jornadas provisionales)' : ''}</td><td class="num">${euros(total)}</td></tr>`;
 
   // Constancia
   const gan = [...c.stats.values()].sort((a, b) => b.ganadas - a.ganadas || a.m.n - b.m.n);
@@ -388,6 +390,70 @@ function pintarClausulazos(datos, ventana) {
   pintar();
 }
 
+// ---------- Tesorería ----------
+function pintarTesoreria(c, datos) {
+  const sanciones = datos.sanciones.map(x => ({ ...x, m: buscarMiembro(x.manager) })).filter(x => x.m);
+  const pagos = datos.pagos.map(x => ({ ...x, m: buscarMiembro(x.manager) })).filter(x => x.m);
+  const filas = MIEMBROS.map(m => {
+    const s = c.stats.get(m.n);
+    const sanc = sanciones.filter(x => x.m.n === m.n).reduce((t, x) => t + x.importe, 0);
+    const pagado = pagos.filter(x => x.m.n === m.n).reduce((t, x) => t + x.importe, 0);
+    const total = s.clasificacion + s.noPuntua + sanc;
+    return { m, clasificacion: s.clasificacion, noPuntua: s.noPuntua, sanc, total, pagado, debe: total - pagado };
+  }).sort((a, b) => b.debe - a.debe || b.total - a.total || a.m.n - b.m.n);
+  const suma = k => filas.reduce((t, f) => t + f[k], 0);
+
+  $('#cuentas-resumen').innerHTML = [
+    ['Multas acumuladas', euros(suma('total'))],
+    ['Pagado al tesorero', euros(suma('pagado'))],
+    ['Pendiente de pago', euros(Math.max(0, suma('debe')))],
+  ].map(([t, d]) => `<div><dt>${t}</dt><dd>${d}</dd></div>`).join('');
+
+  const debe = v => v > 0 ? `<span class="debe">${euros(v)}</span>` : v < 0 ? `<span class="positivo">${euros(-v)} a favor</span>` : 'Al día';
+  $('#tabla-cuentas tbody').innerHTML = filas.map(f => `<tr>
+    <td>${celdaManager(f.m)}</td>
+    <td class="num ocultable">${euros(f.clasificacion)}</td>
+    <td class="num ocultable">${euros(f.noPuntua)}</td>
+    <td class="num ocultable">${euros(f.sanc)}</td>
+    <td class="num">${euros(f.total)}</td>
+    <td class="num">${euros(f.pagado)}</td>
+    <td class="num">${debe(f.debe)}</td>
+  </tr>`).join('');
+  $('#tabla-cuentas tfoot').innerHTML = `<tr>
+    <td>Total</td>
+    <td class="num ocultable">${euros(suma('clasificacion'))}</td>
+    <td class="num ocultable">${euros(suma('noPuntua'))}</td>
+    <td class="num ocultable">${euros(suma('sanc'))}</td>
+    <td class="num">${euros(suma('total'))}</td>
+    <td class="num">${euros(suma('pagado'))}</td>
+    <td class="num">${euros(Math.max(0, suma('debe')))}</td>
+  </tr>`;
+  $('#nota-provisional-multas').textContent = c.provisionales.size
+    ? `Incluye las jornadas ${[...c.provisionales].join(' y ')}, que aún pueden cambiar.` : '';
+
+  const cuando = x => x.jornada ? `J${x.jornada}` : x.fecha ? limpiar(fFecha.format(deMadrid(x.fecha))) : '–';
+  const extra = [
+    ...c.indebidas,
+    ...sanciones.map(x => ({ ...x, orden: x.fecha ? deMadrid(x.fecha).getTime() : 0 })),
+  ];
+  $('#lista-sanciones tbody').innerHTML = extra.length
+    ? extra.map(x => `<tr>
+        <td>${cuando(x)}</td>
+        <td>${celdaManager(x.m)}</td>
+        <td>${esc(x.concepto)}${x.provisional ? ' <span class="etiqueta etiqueta-prov">Provisional</span>' : ''}</td>
+        <td class="num">${euros(x.importe)}</td>
+      </tr>`).join('')
+    : '<tr><td colspan="4">No hay sanciones.</td></tr>';
+
+  $('#lista-pagos').innerHTML = pagos.length
+    ? `<table class="tabla tabla-compacta"><thead><tr><th scope="col">Fecha</th><th scope="col">Mánager</th><th scope="col" class="num">Importe</th></tr></thead><tbody>${
+      pagos.sort((a, b) => (deMadrid(b.fecha)?.getTime() || 0) - (deMadrid(a.fecha)?.getTime() || 0)).map(x => `<tr>
+        <td>${x.fecha ? limpiar(fFecha.format(deMadrid(x.fecha))) : '–'}</td>
+        <td>${esc(x.m.nombre)}${x.nota ? `<span class="exonera">${esc(x.nota)}</span>` : ''}</td>
+        <td class="num">${euros(x.importe)}</td></tr>`).join('')}</tbody></table>`
+    : '<p class="vacio">Todavía no hay pagos apuntados. Cuando alguien pague al tesorero, se añade una fila en la pestaña Pagos de la hoja NLF – Administración y aquí se descuenta.</p>';
+}
+
 // ---------- Calendario ----------
 function pintarCalendario(c, calendario) {
   const notas = { 'Fin de la primera vuelta': 'Campeón de invierno' };
@@ -419,7 +485,7 @@ function pintarMiembros() {
 
 function pintarEstado(datos) {
   const copia = Object.entries(datos.fuentes).filter(([, v]) => v === 'copia').map(([k]) => k);
-  const nombres = { jornadas: 'las jornadas', clausulazos: 'los clausulazos', periodos: 'las semanas de clausulazos' };
+  const nombres = { jornadas: 'las jornadas', clausulazos: 'los clausulazos', periodos: 'las semanas de clausulazos', sanciones: 'las sanciones', pagos: 'los pagos' };
   $('#estado-datos').textContent = copia.length === 0
     ? `Datos leídos de las hojas el ${limpiar(fFechaHora.format(new Date(datos.actualizado)))}.`
     : `Ahora mismo no se pueden leer ${copia.map(k => nombres[k]).join(', ')} de la hoja; se muestra la copia del ${limpiar(fFecha.format(deMadrid(datos.copiaDe)))}.`;
@@ -441,6 +507,7 @@ function pintarEstado(datos) {
     }).observe($('#lienzo'));
     pintarJornadas(c, datos.calendario);
     pintarClausulazos(datos, ventana);
+    pintarTesoreria(c, datos);
     pintarCalendario(c, datos.calendario);
     pintarMiembros();
     pintarEstado(datos);

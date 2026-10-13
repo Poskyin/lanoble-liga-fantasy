@@ -3,6 +3,7 @@
 
 const HOJA_CLAUSULAZOS = '1N3n748kTBGl2To4PlyuW0_UKvf72ci3gco2pJnh8DQE';
 const HOJA_JORNADAS = '1oWKcSJjM6GOtgYxzplS8v4oc5ireHNhkTOTFNSeTch4';
+const HOJA_ADMIN = '1seP8dOU5IuXR3HVfHnmSkX-8tuKQrhIZCqP-z3TN82A';
 
 const urlCsv = (id, pestana) =>
   `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:csv&headers=1` +
@@ -120,8 +121,22 @@ export async function periodos() {
     .filter(f => f.periodo && f.inicio && f.fin);
 }
 
+export async function sanciones() {
+  const filas = aObjetos(await leer(HOJA_ADMIN, 'Sanciones'), ['Fecha', 'Mánager', 'Concepto', 'Importe']);
+  return filas
+    .map(f => ({ fecha: fechaIso(f.Fecha), manager: f['Mánager'], concepto: f.Concepto, importe: numero(f.Importe) }))
+    .filter(f => f.manager && !Number.isNaN(f.importe));
+}
+
+export async function pagos() {
+  const filas = aObjetos(await leer(HOJA_ADMIN, 'Pagos'), ['Fecha', 'Mánager', 'Importe', 'Nota']);
+  return filas
+    .map(f => ({ fecha: fechaIso(f.Fecha), manager: f['Mánager'], importe: numero(f.Importe), nota: f.Nota }))
+    .filter(f => f.manager && !Number.isNaN(f.importe));
+}
+
 export default async function handler(req, res) {
-  const partes = { jornadas, clausulazos, periodos };
+  const partes = { jornadas, clausulazos, periodos, sanciones, pagos };
   const salida = { actualizado: new Date().toISOString(), fuentes: {} };
   await Promise.all(Object.entries(partes).map(async ([nombre, fn]) => {
     try {
