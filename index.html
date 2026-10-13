@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/styles.css?v=4">
+  <link rel="stylesheet" href="/assets/styles.css?v=5">
 </head>
 <body>
   <a class="saltar" href="#clasificacion">Ir a la clasificación</a>
@@ -96,7 +96,14 @@
     <section id="clausulazos" class="seccion">
       <div class="seccion-cab">
         <h2>Clausulazos</h2>
-        <a class="boton boton-oro" href="https://poskyin.shinyapps.io/appnlf/" target="_blank" rel="noopener">Apuntar un clausulazo</a>
+        <button class="boton boton-oro" id="abrir-shiny" type="button" aria-expanded="false" aria-controls="panel-shiny">Apuntar un clausulazo</button>
+      </div>
+      <div class="panel-shiny" id="panel-shiny" hidden>
+        <div class="panel-shiny-cab">
+          <p class="nota">Formulario de la app de clausulazos. Lo que guardes aparece en esta página en un par de minutos.</p>
+          <a href="https://poskyin.shinyapps.io/appnlf/" target="_blank" rel="noopener">Abrir en otra pestaña</a>
+        </div>
+        <div class="panel-shiny-marco" id="marco-shiny"></div>
       </div>
       <p class="nota nota-ventana" id="nota-ventana"></p>
 
@@ -238,6 +245,6 @@
   </footer>
 
   <div class="tooltip" id="tooltip" role="status" hidden></div>
-  <script src="/assets/app.js?v=4" type="module"></script>
+  <script src="/assets/app.js?v=5" type="module"></script>
 </body>
 </html>

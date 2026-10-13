@@ -499,6 +499,22 @@ function pintarEstado(datos) {
     : `Ahora mismo no se pueden leer ${copia.map(k => nombres[k]).join(', ')} de la hoja; se muestra la copia del ${limpiar(fFecha.format(deMadrid(datos.copiaDe)))}.`;
 }
 
+// ---------- App de Shiny para apuntar clausulazos ----------
+// Solo se carga al abrir el panel y se descarga al cerrarlo, para no gastar horas de shinyapps.io.
+const URL_SHINY = 'https://poskyin.shinyapps.io/appnlf/';
+function prepararShiny() {
+  const boton = $('#abrir-shiny'), panel = $('#panel-shiny'), marco = $('#marco-shiny');
+  if (!boton) return;
+  boton.addEventListener('click', () => {
+    const abrir = panel.hidden;
+    panel.hidden = !abrir;
+    boton.setAttribute('aria-expanded', String(abrir));
+    boton.textContent = abrir ? 'Cerrar el formulario' : 'Apuntar un clausulazo';
+    marco.innerHTML = abrir ? `<iframe src="${URL_SHINY}" title="Formulario para apuntar un clausulazo"></iframe>` : '';
+    if (abrir) panel.scrollIntoView({ block: 'nearest' });
+  });
+}
+
 // ---------- Arranque ----------
 // Cada sección se pinta por separado: si una falla, las demás siguen apareciendo.
 function seguro(nombre, fn) {
@@ -506,6 +522,7 @@ function seguro(nombre, fn) {
 }
 
 (async () => {
+  seguro('shiny', prepararShiny);
   let datos;
   try {
     datos = await cargar();

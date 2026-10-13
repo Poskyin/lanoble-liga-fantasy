@@ -249,6 +249,11 @@ p { margin: 0; }
 .boton.boton-oro:hover { background: var(--oro-claro); }
 .nota-ventana { margin: -.6rem 0 1.2rem; }
 
+/* Formulario de Shiny */
+.panel-shiny { margin: 0 0 1.6rem; padding: .8rem; background: var(--azur-alto); border: 1px solid var(--oro); border-radius: var(--radio); }
+.panel-shiny-cab { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .3rem 1rem; align-items: baseline; margin: 0 .2rem .7rem; }
+.panel-shiny iframe { display: block; width: 100%; height: min(80vh, 760px); border: 0; border-radius: 4px; background: #fff; }
+
 /* Tesorería */
 .cuentas { margin: 0 0 .4rem; max-width: none; }
 .cuentas dd { font-size: 1.35rem; font-weight: 700; font-variant-numeric: tabular-nums lining-nums; }
