@@ -1,0 +1,881 @@
+{
+ "jornadas": [
+  {
+   "jornada": 1,
+   "posicion": 1,
+   "usuario": "MrPipita20",
+   "puntos": 71,
+   "provisional": false
+  },
+  {
+   "jornada": 1,
+   "posicion": 2,
+   "usuario": "Fer2201",
+   "puntos": 50,
+   "provisional": false
+  },
+  {
+   "jornada": 1,
+   "posicion": 3,
+   "usuario": "Dani88",
+   "puntos": 48,
+   "provisional": false
+  },
+  {
+   "jornada": 1,
+   "posicion": 4,
+   "usuario": "nikiscossj",
+   "puntos": 45,
+   "provisional": false
+  },
+  {
+   "jornada": 1,
+   "posicion": 5,
+   "usuario": "Poskyin_RPB",
+   "puntos": 40,
+   "provisional": false
+  },
+  {
+   "jornada": 2,
+   "posicion": 1,
+   "usuario": "Poskyin_RPB",
+   "puntos": 87,
+   "provisional": false
+  },
+  {
+   "jornada": 2,
+   "posicion": 2,
+   "usuario": "Dani88",
+   "puntos": 49,
+   "provisional": false
+  },
+  {
+   "jornada": 2,
+   "posicion": 3,
+   "usuario": "nikiscossj",
+   "puntos": 49,
+   "provisional": false
+  },
+  {
+   "jornada": 2,
+   "posicion": 4,
+   "usuario": "MrPipita20",
+   "puntos": 39,
+   "provisional": false
+  },
+  {
+   "jornada": 2,
+   "posicion": 5,
+   "usuario": "Fer2201",
+   "puntos": 39,
+   "provisional": false
+  },
+  {
+   "jornada": 3,
+   "posicion": 1,
+   "usuario": "Dani88",
+   "puntos": 70,
+   "provisional": false
+  },
+  {
+   "jornada": 3,
+   "posicion": 2,
+   "usuario": "Fer2201",
+   "puntos": 70,
+   "provisional": false
+  },
+  {
+   "jornada": 3,
+   "posicion": 3,
+   "usuario": "MrPipita20",
+   "puntos": 62,
+   "provisional": false
+  },
+  {
+   "jornada": 3,
+   "posicion": 4,
+   "usuario": "Poskyin_RPB",
+   "puntos": 52,
+   "provisional": false
+  },
+  {
+   "jornada": 3,
+   "posicion": 5,
+   "usuario": "nikiscossj",
+   "puntos": 0,
+   "provisional": false
+  },
+  {
+   "jornada": 4,
+   "posicion": 1,
+   "usuario": "Fer2201",
+   "puntos": 72,
+   "provisional": false
+  },
+  {
+   "jornada": 4,
+   "posicion": 2,
+   "usuario": "MrPipita20",
+   "puntos": 65,
+   "provisional": false
+  },
+  {
+   "jornada": 4,
+   "posicion": 3,
+   "usuario": "nikiscossj",
+   "puntos": 63,
+   "provisional": false
+  },
+  {
+   "jornada": 4,
+   "posicion": 4,
+   "usuario": "Poskyin_RPB",
+   "puntos": 62,
+   "provisional": false
+  },
+  {
+   "jornada": 4,
+   "posicion": 5,
+   "usuario": "Dani88",
+   "puntos": 59,
+   "provisional": false
+  },
+  {
+   "jornada": 5,
+   "posicion": 1,
+   "usuario": "nikiscossj",
+   "puntos": 70,
+   "provisional": false
+  },
+  {
+   "jornada": 5,
+   "posicion": 2,
+   "usuario": "MrPipita20",
+   "puntos": 66,
+   "provisional": false
+  },
+  {
+   "jornada": 5,
+   "posicion": 3,
+   "usuario": "Fer2201",
+   "puntos": 65,
+   "provisional": false
+  },
+  {
+   "jornada": 5,
+   "posicion": 4,
+   "usuario": "Dani88",
+   "puntos": 58,
+   "provisional": false
+  },
+  {
+   "jornada": 5,
+   "posicion": 5,
+   "usuario": "Poskyin_RPB",
+   "puntos": 45,
+   "provisional": false
+  },
+  {
+   "jornada": 6,
+   "posicion": 1,
+   "usuario": "MrPipita20",
+   "puntos": 63,
+   "provisional": true
+  },
+  {
+   "jornada": 6,
+   "posicion": 2,
+   "usuario": "Poskyin_RPB",
+   "puntos": 62,
+   "provisional": true
+  },
+  {
+   "jornada": 6,
+   "posicion": 3,
+   "usuario": "Dani88",
+   "puntos": 61,
+   "provisional": true
+  },
+  {
+   "jornada": 6,
+   "posicion": 4,
+   "usuario": "nikiscossj",
+   "puntos": 56,
+   "provisional": true
+  },
+  {
+   "jornada": 6,
+   "posicion": 5,
+   "usuario": "Fer2201",
+   "puntos": 49,
+   "provisional": true
+  },
+  {
+   "jornada": 7,
+   "posicion": 1,
+   "usuario": "nikiscossj",
+   "puntos": 76,
+   "provisional": false
+  },
+  {
+   "jornada": 7,
+   "posicion": 2,
+   "usuario": "MrPipita20",
+   "puntos": 59,
+   "provisional": false
+  },
+  {
+   "jornada": 7,
+   "posicion": 3,
+   "usuario": "Fer2201",
+   "puntos": 54,
+   "provisional": false
+  },
+  {
+   "jornada": 7,
+   "posicion": 4,
+   "usuario": "Poskyin_RPB",
+   "puntos": 48,
+   "provisional": false
+  },
+  {
+   "jornada": 7,
+   "posicion": 5,
+   "usuario": "Dani88",
+   "puntos": 46,
+   "provisional": false
+  },
+  {
+   "jornada": 8,
+   "posicion": 1,
+   "usuario": "MrPipita20",
+   "puntos": 71,
+   "provisional": true
+  },
+  {
+   "jornada": 8,
+   "posicion": 2,
+   "usuario": "Fer2201",
+   "puntos": 65,
+   "provisional": true
+  },
+  {
+   "jornada": 8,
+   "posicion": 3,
+   "usuario": "nikiscossj",
+   "puntos": 58,
+   "provisional": true
+  },
+  {
+   "jornada": 8,
+   "posicion": 4,
+   "usuario": "Poskyin_RPB",
+   "puntos": 54,
+   "provisional": true
+  },
+  {
+   "jornada": 8,
+   "posicion": 5,
+   "usuario": "Dani88",
+   "puntos": 38,
+   "provisional": true
+  }
+ ],
+ "clausulazos": [
+  {
+   "fecha": "2026-09-26T15:48:32",
+   "comprador": "Gabriel Tarcaya",
+   "vendedor": "Alejandro Antequera",
+   "jugador": "Roberto",
+   "importe": 51.0,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 8"
+  },
+  {
+   "fecha": "2026-09-28T07:34:26",
+   "comprador": "Gabriel Tarcaya",
+   "vendedor": "Ferxo",
+   "jugador": "Yoel Lago",
+   "importe": 11.0,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 8"
+  },
+  {
+   "fecha": "2026-09-28T16:07:11",
+   "comprador": "Alejandro Antequera",
+   "vendedor": "Gabriel Tarcaya",
+   "jugador": "Llorente",
+   "importe": 61.5,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 8"
+  },
+  {
+   "fecha": "2026-09-28T16:07:35",
+   "comprador": "Nicolás Figueroa",
+   "vendedor": "Gabriel Tarcaya",
+   "jugador": "Agoumé",
+   "importe": 16.5,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 8"
+  },
+  {
+   "fecha": "2026-09-28T16:07:55",
+   "comprador": "Gabriel Tarcaya",
+   "vendedor": "Nicolás Figueroa",
+   "jugador": "Angel Perez",
+   "importe": 36.7,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 8"
+  },
+  {
+   "fecha": "2026-09-28T16:24:33",
+   "comprador": "Alejandro Antequera",
+   "vendedor": "Gabriel Tarcaya",
+   "jugador": "Bellerín",
+   "importe": 21.5,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 8"
+  },
+  {
+   "fecha": "2026-09-28T16:24:45",
+   "comprador": "Daniel Almagro",
+   "vendedor": "Alejandro Antequera",
+   "jugador": "Otto",
+   "importe": 21.5,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 8"
+  },
+  {
+   "fecha": "2026-10-01T16:10:24",
+   "comprador": "Alejandro Antequera",
+   "vendedor": "Gabriel Tarcaya",
+   "jugador": "Baena",
+   "importe": 79.6,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 8"
+  },
+  {
+   "fecha": "2026-10-01T19:40:19",
+   "comprador": "Nicolás Figueroa",
+   "vendedor": "Ferxo",
+   "jugador": "Suazo",
+   "importe": 7.6,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 8"
+  },
+  {
+   "fecha": "2026-10-02T20:48:07",
+   "comprador": "Gabriel Tarcaya",
+   "vendedor": "Daniel Almagro",
+   "jugador": "T. MORENTE",
+   "importe": 4.1,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 8"
+  },
+  {
+   "fecha": "2026-10-03T19:19:28",
+   "comprador": "Nicolás Figueroa",
+   "vendedor": "Ferxo",
+   "jugador": "Koski",
+   "importe": 27.4,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 9"
+  },
+  {
+   "fecha": "2026-10-03T19:19:44",
+   "comprador": "Nicolás Figueroa",
+   "vendedor": "Gabriel Tarcaya",
+   "jugador": "Ibañez",
+   "importe": 15.5,
+   "exonera": true,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 9"
+  },
+  {
+   "fecha": "2026-10-04T16:16:20",
+   "comprador": "Gabriel Tarcaya",
+   "vendedor": "Ferxo",
+   "jugador": "Soria",
+   "importe": 39.5,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 9"
+  },
+  {
+   "fecha": "2026-10-05T10:46:29",
+   "comprador": "Daniel Almagro",
+   "vendedor": "Gabriel Tarcaya",
+   "jugador": "Zabiri",
+   "importe": 28.0,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 9"
+  },
+  {
+   "fecha": "2026-10-06T16:01:20",
+   "comprador": "Gabriel Tarcaya",
+   "vendedor": "Ferxo",
+   "jugador": "Ochieng",
+   "importe": 1.6,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 9"
+  },
+  {
+   "fecha": "2026-10-06T16:11:56",
+   "comprador": "Nicolás Figueroa",
+   "vendedor": "Ferxo",
+   "jugador": "Deossa",
+   "importe": 13.0,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 9"
+  },
+  {
+   "fecha": "2026-10-06T16:16:20",
+   "comprador": "Ferxo",
+   "vendedor": "Alejandro Antequera",
+   "jugador": "Pedrosa",
+   "importe": 4.0,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 9"
+  },
+  {
+   "fecha": "2026-10-06T22:35:28",
+   "comprador": "Daniel Almagro",
+   "vendedor": "Nicolás Figueroa",
+   "jugador": "Flick",
+   "importe": 3.9,
+   "exonera": true,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 9"
+  },
+  {
+   "fecha": "2026-10-06T22:35:45",
+   "comprador": "Daniel Almagro",
+   "vendedor": "Alejandro Antequera",
+   "jugador": "De Galarreta",
+   "importe": 25.2,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 9"
+  },
+  {
+   "fecha": "2026-10-08T19:35:31",
+   "comprador": "Daniel Almagro",
+   "vendedor": "Alejandro Antequera",
+   "jugador": "Gudelj",
+   "importe": 8.5,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 9"
+  },
+  {
+   "fecha": "2026-10-08T19:35:48",
+   "comprador": "Alejandro Antequera",
+   "vendedor": "Daniel Almagro",
+   "jugador": "Herrera",
+   "importe": 5.2,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 9"
+  },
+  {
+   "fecha": "2026-10-08T19:53:47",
+   "comprador": "Gabriel Tarcaya",
+   "vendedor": "Daniel Almagro",
+   "jugador": "Dani Lorenzo",
+   "importe": 10.6,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 9"
+  },
+  {
+   "fecha": "2026-10-08T19:57:23",
+   "comprador": "Nicolás Figueroa",
+   "vendedor": "Daniel Almagro",
+   "jugador": "Llorenc",
+   "importe": 1.0,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 9"
+  },
+  {
+   "fecha": "2026-10-13T16:39:13",
+   "comprador": "Ferxo",
+   "vendedor": "Alejandro Antequera",
+   "jugador": "Recio",
+   "importe": 3.1,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 10"
+  },
+  {
+   "fecha": "2026-10-13T16:39:55",
+   "comprador": "Nicolás Figueroa",
+   "vendedor": "Daniel Almagro",
+   "jugador": "Herrero",
+   "importe": 21.8,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 10"
+  },
+  {
+   "fecha": "2026-10-13T16:40:25",
+   "comprador": "Ferxo",
+   "vendedor": "Gabriel Tarcaya",
+   "jugador": "Yo el Lago",
+   "importe": 17.5,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 10"
+  },
+  {
+   "fecha": "2026-10-13T16:40:47",
+   "comprador": "Gabriel Tarcaya",
+   "vendedor": "Nicolás Figueroa",
+   "jugador": "Lamine Yamal",
+   "importe": 220.0,
+   "exonera": false,
+   "tipo": "Clausulazo",
+   "periodo": "Semana 10"
+  }
+ ],
+ "periodos": [
+  {
+   "periodo": "Semana 1",
+   "inicio": "2026-08-07T21:00",
+   "fin": "2026-08-14T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 2",
+   "inicio": "2026-08-14T21:00",
+   "fin": "2026-08-21T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 3",
+   "inicio": "2026-08-21T21:00",
+   "fin": "2026-08-28T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 4",
+   "inicio": "2026-08-28T21:00",
+   "fin": "2026-09-04T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 5",
+   "inicio": "2026-09-04T21:00",
+   "fin": "2026-09-11T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 6a",
+   "inicio": "2026-09-11T21:00",
+   "fin": "2026-09-15T21:00",
+   "tipo": "Doble (parte 1)",
+   "maximo": 3
+  },
+  {
+   "periodo": "Semana 6b",
+   "inicio": "2026-09-15T21:00",
+   "fin": "2026-09-18T21:00",
+   "tipo": "Doble (parte 2)",
+   "maximo": 3
+  },
+  {
+   "periodo": "Semana 7",
+   "inicio": "2026-09-18T21:00",
+   "fin": "2026-09-25T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 8",
+   "inicio": "2026-09-25T21:00",
+   "fin": "2026-10-02T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 9",
+   "inicio": "2026-10-02T21:00",
+   "fin": "2026-10-09T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 10",
+   "inicio": "2026-10-09T21:00",
+   "fin": "2026-10-16T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 11",
+   "inicio": "2026-10-16T21:00",
+   "fin": "2026-10-23T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 12",
+   "inicio": "2026-10-23T21:00",
+   "fin": "2026-10-30T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 13",
+   "inicio": "2026-10-30T21:00",
+   "fin": "2026-11-06T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 14",
+   "inicio": "2026-11-06T21:00",
+   "fin": "2026-11-13T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 15",
+   "inicio": "2026-11-13T21:00",
+   "fin": "2026-11-20T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 16",
+   "inicio": "2026-11-20T21:00",
+   "fin": "2026-11-27T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 17",
+   "inicio": "2026-11-27T21:00",
+   "fin": "2026-12-04T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 18",
+   "inicio": "2026-12-04T21:00",
+   "fin": "2026-12-11T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 19",
+   "inicio": "2026-12-11T21:00",
+   "fin": "2026-12-18T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 20",
+   "inicio": "2026-12-18T21:00",
+   "fin": "2026-12-25T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 21",
+   "inicio": "2026-12-25T21:00",
+   "fin": "2027-01-01T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 22",
+   "inicio": "2027-01-01T21:00",
+   "fin": "2027-01-08T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 23",
+   "inicio": "2027-01-08T21:00",
+   "fin": "2027-01-15T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 24",
+   "inicio": "2027-01-15T21:00",
+   "fin": "2027-01-22T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 25",
+   "inicio": "2027-01-22T21:00",
+   "fin": "2027-01-29T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 26",
+   "inicio": "2027-01-29T21:00",
+   "fin": "2027-02-05T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 27",
+   "inicio": "2027-02-05T21:00",
+   "fin": "2027-02-12T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 28",
+   "inicio": "2027-02-12T21:00",
+   "fin": "2027-02-19T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 29",
+   "inicio": "2027-02-19T21:00",
+   "fin": "2027-02-26T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 30",
+   "inicio": "2027-02-26T21:00",
+   "fin": "2027-03-05T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 31",
+   "inicio": "2027-03-05T21:00",
+   "fin": "2027-03-12T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 32",
+   "inicio": "2027-03-12T21:00",
+   "fin": "2027-03-19T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 33",
+   "inicio": "2027-03-19T21:00",
+   "fin": "2027-03-26T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 34",
+   "inicio": "2027-03-26T21:00",
+   "fin": "2027-04-02T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 35",
+   "inicio": "2027-04-02T21:00",
+   "fin": "2027-04-09T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 36",
+   "inicio": "2027-04-09T21:00",
+   "fin": "2027-04-16T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 37a",
+   "inicio": "2027-04-16T21:00",
+   "fin": "2027-04-20T21:00",
+   "tipo": "Doble (parte 1)",
+   "maximo": 3
+  },
+  {
+   "periodo": "Semana 37b",
+   "inicio": "2027-04-20T21:00",
+   "fin": "2027-04-23T21:00",
+   "tipo": "Doble (parte 2)",
+   "maximo": 3
+  },
+  {
+   "periodo": "Semana 38",
+   "inicio": "2027-04-23T21:00",
+   "fin": "2027-04-30T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 39",
+   "inicio": "2027-04-30T21:00",
+   "fin": "2027-05-07T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 40",
+   "inicio": "2027-05-07T21:00",
+   "fin": "2027-05-14T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 41",
+   "inicio": "2027-05-14T21:00",
+   "fin": "2027-05-21T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 42",
+   "inicio": "2027-05-21T21:00",
+   "fin": "2027-05-28T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 43",
+   "inicio": "2027-05-28T21:00",
+   "fin": "2027-06-04T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  },
+  {
+   "periodo": "Semana 44",
+   "inicio": "2027-06-04T21:00",
+   "fin": "2027-06-11T21:00",
+   "tipo": "Normal",
+   "maximo": 4
+  }
+ ],
+ "copiaDe": "2026-10-13"
+}

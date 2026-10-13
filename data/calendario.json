@@ -1,0 +1,230 @@
+[
+ {
+  "jornada": 1,
+  "fechas": "14–16 ago",
+  "inicio": "2026-08-14",
+  "nota": ""
+ },
+ {
+  "jornada": 2,
+  "fechas": "22 ago",
+  "inicio": "2026-08-21",
+  "nota": ""
+ },
+ {
+  "jornada": 3,
+  "fechas": "30 ago",
+  "inicio": "2026-08-28",
+  "nota": ""
+ },
+ {
+  "jornada": 4,
+  "fechas": "4 sep",
+  "inicio": "2026-09-04",
+  "nota": ""
+ },
+ {
+  "jornada": 5,
+  "fechas": "12–13 sep",
+  "inicio": "2026-09-11",
+  "nota": ""
+ },
+ {
+  "jornada": 6,
+  "fechas": "15–17 sep",
+  "inicio": "2026-09-15",
+  "nota": "Entre semana"
+ },
+ {
+  "jornada": 7,
+  "fechas": "19–20 sep",
+  "inicio": "2026-09-18",
+  "nota": ""
+ },
+ {
+  "jornada": 8,
+  "fechas": "10–11 oct",
+  "inicio": "2026-10-09",
+  "nota": ""
+ },
+ {
+  "jornada": 9,
+  "fechas": "16–19 oct",
+  "inicio": "2026-10-16",
+  "nota": ""
+ },
+ {
+  "jornada": 10,
+  "fechas": "24–25 oct",
+  "inicio": "2026-10-23",
+  "nota": "Clásico"
+ },
+ {
+  "jornada": 11,
+  "fechas": "31 oct – 1 nov",
+  "inicio": "2026-10-30",
+  "nota": ""
+ },
+ {
+  "jornada": 12,
+  "fechas": "7–8 nov",
+  "inicio": "2026-11-06",
+  "nota": ""
+ },
+ {
+  "jornada": 13,
+  "fechas": "21–22 nov",
+  "inicio": "2026-11-20",
+  "nota": ""
+ },
+ {
+  "jornada": 14,
+  "fechas": "28–29 nov",
+  "inicio": "2026-11-27",
+  "nota": ""
+ },
+ {
+  "jornada": 15,
+  "fechas": "5–6 dic",
+  "inicio": "2026-12-04",
+  "nota": ""
+ },
+ {
+  "jornada": 16,
+  "fechas": "12–13 dic",
+  "inicio": "2026-12-11",
+  "nota": ""
+ },
+ {
+  "jornada": 17,
+  "fechas": "19–20 dic",
+  "inicio": "2026-12-18",
+  "nota": ""
+ },
+ {
+  "jornada": 18,
+  "fechas": "2–3 ene",
+  "inicio": "2027-01-01",
+  "nota": ""
+ },
+ {
+  "jornada": 19,
+  "fechas": "9–10 ene",
+  "inicio": "2027-01-08",
+  "nota": "Fin de la primera vuelta"
+ },
+ {
+  "jornada": 20,
+  "fechas": "16–17 ene",
+  "inicio": "2027-01-15",
+  "nota": ""
+ },
+ {
+  "jornada": 21,
+  "fechas": "23–24 ene",
+  "inicio": "2027-01-22",
+  "nota": ""
+ },
+ {
+  "jornada": 22,
+  "fechas": "30–31 ene",
+  "inicio": "2027-01-29",
+  "nota": ""
+ },
+ {
+  "jornada": 23,
+  "fechas": "6–7 feb",
+  "inicio": "2027-02-05",
+  "nota": ""
+ },
+ {
+  "jornada": 24,
+  "fechas": "13–14 feb",
+  "inicio": "2027-02-12",
+  "nota": ""
+ },
+ {
+  "jornada": 25,
+  "fechas": "20–21 feb",
+  "inicio": "2027-02-19",
+  "nota": ""
+ },
+ {
+  "jornada": 26,
+  "fechas": "27–28 feb",
+  "inicio": "2027-02-26",
+  "nota": ""
+ },
+ {
+  "jornada": 27,
+  "fechas": "6–7 mar",
+  "inicio": "2027-03-05",
+  "nota": ""
+ },
+ {
+  "jornada": 28,
+  "fechas": "13–14 mar",
+  "inicio": "2027-03-12",
+  "nota": ""
+ },
+ {
+  "jornada": 29,
+  "fechas": "20–21 mar",
+  "inicio": "2027-03-19",
+  "nota": ""
+ },
+ {
+  "jornada": 30,
+  "fechas": "3–4 abr",
+  "inicio": "2027-04-02",
+  "nota": ""
+ },
+ {
+  "jornada": 31,
+  "fechas": "10–11 abr",
+  "inicio": "2027-04-09",
+  "nota": "Jornada retro"
+ },
+ {
+  "jornada": 32,
+  "fechas": "17–18 abr",
+  "inicio": "2027-04-16",
+  "nota": ""
+ },
+ {
+  "jornada": 33,
+  "fechas": "20–22 abr",
+  "inicio": "2027-04-20",
+  "nota": "Entre semana"
+ },
+ {
+  "jornada": 34,
+  "fechas": "1–2 may",
+  "inicio": "2027-04-30",
+  "nota": ""
+ },
+ {
+  "jornada": 35,
+  "fechas": "8–9 may",
+  "inicio": "2027-05-07",
+  "nota": "Clásico"
+ },
+ {
+  "jornada": 36,
+  "fechas": "15–16 may",
+  "inicio": "2027-05-14",
+  "nota": ""
+ },
+ {
+  "jornada": 37,
+  "fechas": "22–23 may",
+  "inicio": "2027-05-21",
+  "nota": ""
+ },
+ {
+  "jornada": 38,
+  "fechas": "29–30 may",
+  "inicio": "2027-05-28",
+  "nota": "Última jornada"
+ }
+]

@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La Noble Liga Fantasy</title>
+  <meta name="description" content="Clasificación, jornadas, clausulazos y Carta Magna de La Noble Liga Fantasy. Fama, Ambitio, Consilium.">
+  <meta name="theme-color" content="#131d31">
+  <meta property="og:title" content="La Noble Liga Fantasy">
+  <meta property="og:description" content="Clasificación, jornadas y clausulazos de la temporada 2026/27.">
+  <meta property="og:image" content="/assets/og.jpg">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <a class="saltar" href="#clasificacion">Ir a la clasificación</a>
+
+  <nav class="barra" aria-label="Secciones">
+    <a class="barra-marca" href="#inicio"><img src="/assets/favicon.png" alt="" width="28" height="28"><span>NLF</span></a>
+    <div class="barra-enlaces">
+      <a href="#clasificacion">Clasificación</a>
+      <a href="#jornadas">Jornadas</a>
+      <a href="#clausulazos">Clausulazos</a>
+      <a href="#calendario">Calendario</a>
+      <a href="#carta-magna">Carta Magna</a>
+    </div>
+  </nav>
+
+  <header class="portada" id="inicio">
+    <div class="portada-escudo">
+      <img src="/assets/escudo.webp" alt="Escudo de La Noble Liga Fantasy: caballero sobre un pegaso dorado, laureles, corona y la Carta Magna con su sello" width="640" height="733">
+    </div>
+    <div class="portada-texto">
+      <p class="temporada">Temporada 2026/27</p>
+      <h1>La Noble Liga Fantasy</h1>
+      <p class="lema" lang="la">Fama, Ambitio, Consilium</p>
+      <p class="parte" id="parte">Cargando la clasificación…</p>
+      <dl class="avisos" id="avisos"></dl>
+    </div>
+  </header>
+
+  <main>
+    <section id="clasificacion" class="seccion">
+      <div class="seccion-cab">
+        <h2>Clasificación general</h2>
+        <p class="nota" id="nota-provisional"></p>
+      </div>
+      <div class="tabla-envoltura">
+        <table class="tabla tabla-general" id="tabla-general">
+          <thead>
+            <tr>
+              <th scope="col" class="num">Pos.</th>
+              <th scope="col">Mánager</th>
+              <th scope="col" class="num">Puntos</th>
+              <th scope="col" class="num ocultable">Media</th>
+              <th scope="col" class="num">Jornadas ganadas</th>
+              <th scope="col" class="ocultable">Últimas jornadas</th>
+              <th scope="col" class="num ocultable">Al líder</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <figure class="grafico" id="grafico-evolucion">
+        <figcaption>
+          <h3>Así ha ido la general</h3>
+          <p>Puesto de cada mánager en la general después de cada jornada. Pasa el dedo o el ratón por una jornada para ver los puntos.</p>
+        </figcaption>
+        <div class="leyenda" id="leyenda"></div>
+        <div class="grafico-lienzo" id="lienzo"></div>
+      </figure>
+    </section>
+
+    <section id="jornadas" class="seccion">
+      <div class="seccion-cab">
+        <h2>Jornadas</h2>
+        <p class="nota">Orden de la app: los empates los deshace el valor de mercado del equipo.</p>
+      </div>
+      <div class="selector" id="selector-jornada" role="tablist" aria-label="Elegir jornada"></div>
+      <div class="jornada-detalle" id="jornada-detalle" role="tabpanel"></div>
+
+      <div class="dos-columnas">
+        <div>
+          <h3>Multas por clasificación</h3>
+          <p class="nota">1 € el último y 0,50 € el penúltimo de cada jornada. Hay 30 días para pagar al tesorero.</p>
+          <table class="tabla tabla-compacta" id="tabla-multas">
+            <thead><tr><th scope="col">Mánager</th><th scope="col" class="num">Último</th><th scope="col" class="num">Penúltimo</th><th scope="col" class="num">Total</th></tr></thead>
+            <tbody></tbody>
+            <tfoot></tfoot>
+          </table>
+        </div>
+        <div>
+          <h3>Premio a la constancia</h3>
+          <p class="nota">Se lleva el 10 % del bote quien gane más jornadas.</p>
+          <ol class="constancia" id="constancia"></ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="clausulazos" class="seccion">
+      <div class="seccion-cab">
+        <h2>Clausulazos</h2>
+        <p class="nota" id="nota-ventana"></p>
+      </div>
+
+      <div class="ventana" id="ventana"></div>
+
+      <div class="record" id="record"></div>
+
+      <h3>Balance desde que hay registro</h3>
+      <div class="tabla-envoltura">
+        <table class="tabla tabla-compacta" id="tabla-balance">
+          <thead>
+            <tr>
+              <th scope="col">Mánager</th>
+              <th scope="col" class="num">Hechos</th>
+              <th scope="col" class="num">Recibidos</th>
+              <th scope="col" class="num ocultable">Gastado</th>
+              <th scope="col" class="num ocultable">Ingresado</th>
+              <th scope="col" class="num">Balance</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="historial-cab">
+        <h3>Historial</h3>
+        <label class="filtro">Ver
+          <select id="filtro-manager"><option value="">a todos</option></select>
+        </label>
+      </div>
+      <div class="tabla-envoltura">
+        <table class="tabla tabla-historial" id="tabla-historial">
+          <thead>
+            <tr>
+              <th scope="col">Fecha</th>
+              <th scope="col">Jugador</th>
+              <th scope="col">Lo paga</th>
+              <th scope="col">Lo pierde</th>
+              <th scope="col" class="num">Importe</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <button class="boton-texto" id="ver-mas" type="button" hidden>Ver todos</button>
+    </section>
+
+    <section id="calendario" class="seccion">
+      <div class="seccion-cab">
+        <h2>Calendario de LaLiga</h2>
+        <p class="nota">Fechas por fin de semana. LaLiga fija los horarios unas semanas antes de cada jornada.</p>
+      </div>
+      <ol class="calendario" id="lista-calendario"></ol>
+    </section>
+
+    <section id="carta-magna" class="seccion pergamino">
+      <div class="pergamino-interior">
+        <h2>Carta Magna</h2>
+        <p class="entradilla">Las normas que rigen la liga. La de esta temporada es el Decreto de Refundación, que une la Carta Magna original con todas las modificaciones aprobadas.</p>
+        <div class="descargas">
+          <a class="boton" href="/docs/carta-magna-2026-27.pdf" download>Descargar la Carta Magna 2026/27 (PDF)</a>
+          <a class="boton boton-secundario" href="/docs/carta-magna-2025-26.pdf" download>Carta Magna fundacional 2025/26 (PDF)</a>
+        </div>
+
+        <div class="dos-columnas">
+          <div>
+            <h3>Lo esencial</h3>
+            <dl class="esencial">
+              <dt>Clausulazos</dt>
+              <dd>Máximo 4 hechos y 4 recibidos por semana, de viernes a viernes; 3 en semanas de doble jornada. Pasarse cuesta 1 € y el perjudicado puede recuperar al jugador por el mismo precio.</dd>
+              <dt>Avisos al grupo</dt>
+              <dd>Los clausulazos, en 6 horas (puede avisar cualquiera). Compraventas y cesiones, en 3 horas.</dd>
+              <dt>Porteros</dt>
+              <dd>Como mucho 2 al empezar cada jornada. Clausular un portero teniendo ya 2 es falta grave.</dd>
+              <dt>Multas</dt>
+              <dd>Último de la jornada, 1 €; penúltimo, 0,50 €; alineación indebida, 1 €.</dd>
+              <dt>Premios</dt>
+              <dd>Campeón y subcampeón de invierno recuperan la cuota de la app. Al final: 55 % para el campeón, 25 % el segundo, 10 % el tercero y 10 % quien más jornadas gane.</dd>
+            </dl>
+          </div>
+          <div>
+            <h3>Miembros de pleno derecho</h3>
+            <ol class="miembros" id="miembros"></ol>
+            <p class="nota">Tesorero y mánager de la liga: Alejandro Antequera.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <img src="/assets/favicon.png" alt="" width="40" height="40">
+    <p>Puntos de LaLiga Fantasy y registro de clausulazos de la liga. La web se actualiza sola cada pocos minutos.</p>
+    <p class="estado" id="estado-datos"></p>
+  </footer>
+
+  <div class="tooltip" id="tooltip" role="status" hidden></div>
+  <script src="/assets/app.js" type="module"></script>
+</body>
+</html>

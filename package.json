@@ -1,0 +1,6 @@
+{
+  "name": "lanoble-liga-fantasy",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=18" }
+}
