@@ -500,27 +500,37 @@ function pintarEstado(datos) {
 }
 
 // ---------- Arranque ----------
+// Cada sección se pinta por separado: si una falla, las demás siguen apareciendo.
+function seguro(nombre, fn) {
+  try { fn(); } catch (e) { console.error(`Error al pintar ${nombre}:`, e); }
+}
+
 (async () => {
+  let datos;
   try {
-    const datos = await cargar();
-    const c = calcular(datos.jornadas);
-    const ventana = ventanaActual(datos.periodos);
-    pintarPortada(c, datos, ventana);
-    pintarGeneral(c);
+    datos = await cargar();
+  } catch (e) {
+    console.error(e);
+    $('#parte').textContent = 'No se han podido cargar los datos. Recarga la página en un momento.';
+    return;
+  }
+  const c = calcular(datos.jornadas);
+  let ventana = null;
+  seguro('ventana', () => { ventana = ventanaActual(datos.periodos); });
+  seguro('portada', () => pintarPortada(c, datos, ventana));
+  seguro('clasificación', () => pintarGeneral(c));
+  seguro('evolución', () => {
     pintarEvolucion(c);
     let anchoPrevio = $('#lienzo').clientWidth;
     new ResizeObserver(() => {
       const a = $('#lienzo').clientWidth;
-      if (Math.abs(a - anchoPrevio) > 24) { anchoPrevio = a; pintarEvolucion(c); }
+      if (Math.abs(a - anchoPrevio) > 24) { anchoPrevio = a; seguro('evolución', () => pintarEvolucion(c)); }
     }).observe($('#lienzo'));
-    pintarJornadas(c, datos.calendario);
-    pintarClausulazos(datos, ventana);
-    pintarTesoreria(c, datos);
-    pintarCalendario(c, datos.calendario);
-    pintarMiembros();
-    pintarEstado(datos);
-  } catch (e) {
-    console.error(e);
-    $('#parte').textContent = 'No se han podido cargar los datos. Recarga la página en un momento.';
-  }
+  });
+  seguro('jornadas', () => pintarJornadas(c, datos.calendario));
+  seguro('clausulazos', () => pintarClausulazos(datos, ventana));
+  seguro('tesorería', () => pintarTesoreria(c, datos));
+  seguro('calendario', () => pintarCalendario(c, datos.calendario));
+  seguro('miembros', () => pintarMiembros());
+  seguro('estado', () => pintarEstado(datos));
 })();
