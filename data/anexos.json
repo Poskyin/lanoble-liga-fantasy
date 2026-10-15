@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-13",
+  "actualizado": "2026-10-15",
   "nota_historica": "Las modificaciones 01/02095 y 02/201025 de la temporada 2025/26 quedaron integradas en el texto del Decreto de Refundación, por lo que no figuran como anexos.",
   "modificaciones": [],
   "jurisprudencia": [
@@ -7,10 +7,25 @@
       "codigo": "Jurisprudencia 01",
       "fecha": "2026-09",
       "titulo": "Límite de clausulazos en semana de doble jornada",
-      "articulos": ["Art. 5.2"],
+      "articulos": [
+        "Art. 5.2"
+      ],
       "criterio": "El límite reducido de tres (3) clausulazos a favor y tres (3) en contra se aplica por separado a cada uno de los dos tramos de una semana de doble jornada: del viernes al martes, antes de la jornada entre semana, y del martes al viernes, después de ella. No es un límite conjunto de tres para toda la semana.",
       "motivo": "El artículo 5.2 no precisa si el límite reducido se cuenta por semana o por tramo. El grupo concluyó que se cuenta por tramo.",
       "origen": "Acuerdo del grupo",
+      "votacion": null
+    },
+    {
+      "codigo": "Jurisprudencia 02",
+      "fecha": "2026-10-15",
+      "titulo": "Cómputo de las sanciones por superar el límite de clausulazos",
+      "articulos": [
+        "Art. 5.3",
+        "Art. 11"
+      ],
+      "criterio": "Cada clausulazo que exceda el límite semanal, ya sea el de clausulazos realizados o el de recibidos, constituye una falta leve independiente y conlleva su propia multa de un (1) euro. La falta la comete quien realiza el clausulazo, también cuando el límite superado es el del mánager que lo recibe.\n\nEn consecuencia, dos (2) clausulazos por encima del límite suponen dos (2) euros de multa y dos (2) faltas leves encadenadas, por lo que se resta un (1) clausulazo al infractor en la semana inmediatamente siguiente (art. 5.3).",
+      "motivo": "Los artículos 5.3 y 11 fijan una multa de 1 € por superar el límite, pero no precisan si se aplica por cada clausulazo de más o por la infracción en su conjunto, ni cuántas faltas leves supone.",
+      "origen": "Práctica habitual del grupo, aplicada por primera vez a Ferxo en la Semana 10",
       "votacion": null
     }
   ],
