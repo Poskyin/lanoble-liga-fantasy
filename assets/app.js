@@ -5,7 +5,7 @@ const MIEMBROS = [
   { n: 1, nombre: 'Alejandro Antequera', corto: 'Alejandro', usuario: 'MrPipita20', color: 'var(--m1)', hex: '#3987e5' },
   { n: 2, nombre: 'Daniel Almagro', corto: 'Daniel', usuario: 'Dani88', color: 'var(--m2)', hex: '#d95926' },
   { n: 3, nombre: 'Ferxo', completo: 'Fernando Sánchez López de Rueda', corto: 'Ferxo', usuario: 'Fer2201', color: 'var(--m3)', hex: '#199e70' },
-  { n: 4, nombre: 'Gabriel Tarcaya', alias: 'Real Poskyin Balompié', corto: 'Gabriel', usuario: 'Poskyin_RPB', color: 'var(--m4)', hex: '#c98500' },
+  { n: 4, nombre: 'Gabriel Tarcaya', alias: 'Real Poskyin Balompié', corto: 'Gabriel', usuario: 'Poskyin_RPB', color: 'var(--m4)', hex: '#c98500', escudo: '/assets/escudos/rpb.webp' },
   { n: 5, nombre: 'Nicolás Figueroa', corto: 'Nicolás', usuario: 'nikiscossj', color: 'var(--m5)', hex: '#d55181' },
 ];
 const PRIMERA_VUELTA = 19;
@@ -143,9 +143,14 @@ function pintarPortada(c, datos, ventana) {
   $('#avisos').innerHTML = items.map(([t, d]) => `<div><dt>${esc(t)}</dt><dd>${esc(d)}</dd></div>`).join('');
 }
 
+// Escudo del equipo si lo tiene; si no, la chapa de color.
+const marcaManager = m => m.escudo
+  ? `<img class="manager-escudo" src="${m.escudo}" alt="" title="${esc(m.alias || m.nombre)}" width="256" height="283" loading="lazy">`
+  : `<span class="manager-chapa" style="background:${m.color}"></span>`;
+
 const celdaManager = (m, extra = '') => `
   <span class="manager">
-    <span class="manager-chapa" style="background:${m.color}"></span>
+    <span class="manager-marca">${marcaManager(m)}</span>
     <span><span class="manager-nombre">${esc(m.nombre)}${extra}</span><span class="manager-usuario">${esc(m.usuario)}</span></span>
   </span>`;
 
@@ -488,6 +493,7 @@ function pintarMiembros() {
     <span class="ordinal">${m.n}</span>
     <strong>${esc(m.completo || m.nombre)}</strong>
     <span>${[m.completo ? `«${m.nombre}»` : '', m.alias ? `«${m.alias}»` : '', `${m.usuario} en la app`].filter(Boolean).join(', ')}</span>
+    ${m.escudo ? `<img class="miembro-escudo" src="${m.escudo}" alt="Escudo del ${esc(m.alias || m.nombre)}" width="256" height="283" loading="lazy">` : ''}
   </li>`).join('');
 }
 

@@ -139,7 +139,9 @@ p { margin: 0; }
 .tabla-general tbody tr:first-child td:first-child { box-shadow: inset 3px 0 0 var(--oro); }
 
 .manager { display: flex; align-items: center; gap: .7rem; min-width: 12rem; }
+.manager-marca { width: 2rem; flex: none; display: grid; place-items: center; }
 .manager-chapa { width: .8rem; height: .8rem; border-radius: 50%; flex: none; box-shadow: 0 0 0 2px var(--azur); }
+.manager-escudo { width: 2rem; height: 2.2rem; object-fit: contain; display: block; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .35)); }
 .manager-nombre { font-weight: 700; display: block; line-height: 1.2; }
 .manager-usuario { color: var(--texto-3); font-size: .88rem; display: block; }
 .movimiento { font-size: .8rem; margin-left: .35rem; }
@@ -320,7 +322,9 @@ p { margin: 0; }
 .esencial dd { margin: .15rem 0 0; color: #43382a; max-width: 58ch; }
 
 .miembros { list-style: none; margin: .7rem 0 0; padding: 0; }
-.miembros li { display: grid; grid-template-columns: 2.2rem 1fr; gap: .1rem .6rem; padding: .55rem 0; border-bottom: 1px solid #dccfb0; }
+.miembros li { display: grid; grid-template-columns: 2.2rem 1fr auto; gap: .1rem .6rem; padding: .55rem 0; border-bottom: 1px solid #dccfb0; }
+.miembros strong, .miembros li > span:not(.ordinal) { grid-column: 2; }
+.miembro-escudo { grid-column: 3; grid-row: 1 / span 2; align-self: center; width: 3rem; height: auto; }
 .miembros .ordinal { grid-row: span 2; font-family: var(--fuente-titulo); font-weight: 700; font-size: 1.3rem; color: #6b1f1a; }
 .miembros span { color: var(--tinta-suave); font-size: .92rem; }
 
