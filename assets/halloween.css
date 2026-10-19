@@ -1,0 +1,125 @@
+/* Modo Halloween.
+   Solo actúa cuando <html> tiene la clase "halloween" (la pone el script del <head>
+   del 15 de octubre al 2 de noviembre, o el botón de la calabaza).
+   Para quitarlo del todo basta con borrar este archivo, su <link> y su <script> en index.html. */
+
+/* Botón de la calabaza (solo aparece en fechas) */
+.boton-halloween {
+  flex: none; display: grid; place-items: center;
+  width: 2.3rem; height: 2.3rem; padding: 0; margin-left: .2rem;
+  border-radius: 50%; border: 1px solid var(--azur-linea); background: transparent; cursor: pointer;
+}
+.boton-halloween[hidden] { display: none; }
+.boton-halloween svg { width: 1.45rem; height: 1.45rem; display: block; filter: grayscale(1) opacity(.55); transition: filter .2s; }
+.boton-halloween:hover svg { filter: none; }
+.boton-halloween[aria-pressed="true"] { border-color: rgba(236, 122, 44, .55); }
+.boton-halloween[aria-pressed="true"] svg { filter: drop-shadow(0 0 5px rgba(255, 150, 60, .7)); }
+.cara { fill: #3a1704; }
+.halloween .cara { fill: #ffd060; }
+
+/* Decorados: ocultos salvo con el modo encendido */
+.murcielagos, .telarana, .calabaza { display: none; }
+.halloween .murcielagos, .halloween .telarana { display: block; }
+.halloween .calabaza { display: inline-block; }
+
+/* Paleta: noche morada y calabaza en lugar de azul y oro */
+html.halloween {
+  --azur: #110c18;
+  --azur-alto: #1d1428;
+  --azur-linea: #3b2a50;
+  --oro: #ec7a2c;
+  --oro-claro: #ffb25e;
+  --texto-2: #c5b9d4;
+  --texto-3: #9585a9;
+}
+html.halloween body {
+  background: radial-gradient(900px 560px at 88% -4%, rgba(112, 52, 168, .24), transparent 70%) no-repeat, var(--azur);
+  overflow-x: clip;
+}
+.halloween .barra { background: rgba(17, 12, 24, .92); }
+.halloween .tabla td { border-bottom-color: rgba(59, 42, 80, .6); }
+.halloween .tooltip { background: #0b0711; }
+.halloween .record { background: linear-gradient(100deg, rgba(236, 122, 44, .2), rgba(236, 122, 44, .04) 60%); border-color: rgba(236, 122, 44, .45); }
+.halloween .etiqueta-oro { background: rgba(236, 122, 44, .2); }
+.halloween .tabla-historial tr.destacado td { background: rgba(236, 122, 44, .1); }
+
+/* Portada: luna llena detrás del escudo */
+.halloween .portada::before { background: radial-gradient(closest-side, rgba(236, 122, 44, .16), rgba(112, 52, 168, .1) 55%, transparent 78%); }
+.halloween .portada-escudo { isolation: isolate; }
+.halloween .portada-escudo::before {
+  content: ""; position: absolute; z-index: -1;
+  width: 80%; aspect-ratio: 1; top: -5%; right: -18%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 30%, rgba(255, 255, 255, .5), transparent 32%),
+    radial-gradient(circle at 62% 58%, rgba(196, 160, 102, .35) 0 9%, transparent 10%),
+    radial-gradient(circle at 30% 66%, rgba(196, 160, 102, .3) 0 6%, transparent 7%),
+    radial-gradient(circle at 70% 26%, rgba(196, 160, 102, .25) 0 5%, transparent 6%),
+    radial-gradient(circle at 50% 50%, #fff3d2, #f2d79a 62%, #dcb46a);
+  box-shadow: 0 0 60px 14px rgba(242, 215, 154, .28), 0 0 160px 40px rgba(236, 122, 44, .12);
+}
+.halloween .portada-texto { z-index: 3; } /* los murciélagos pasan por detrás del texto */
+.halloween .portada h1 { text-shadow: 0 0 26px rgba(236, 122, 44, .38), 0 2px 0 rgba(0, 0, 0, .4); }
+.halloween .temporada::after { content: " · Especial Halloween"; }
+
+/* Murciélagos: cruzan la portada de lado a lado */
+.murcielagos {
+  position: absolute; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%);
+  overflow: hidden; pointer-events: none; z-index: 2;
+}
+.murcielago {
+  position: absolute; left: 0; top: var(--y); width: var(--t); color: #08050d;
+  animation: vuelo var(--dur) linear var(--ret) infinite;
+}
+.murcielago:nth-child(even) { animation-direction: reverse; }
+.murcielago svg { display: block; width: 100%; height: auto; fill: currentColor; filter: drop-shadow(0 0 1.5px rgba(255, 150, 70, .75)); }
+.ala { display: block; transform-origin: 50% 62%; animation: aleteo .2s ease-in-out infinite alternate; }
+.murcielago:nth-child(3n) .ala { animation-duration: .26s; }
+.murcielago:nth-child(3n + 1) .ala { animation-duration: .17s; }
+@keyframes vuelo {
+  0%   { transform: translate(-12vw, 0) rotate(4deg); }
+  25%  { transform: translate(20vw, -28px) rotate(-6deg); }
+  50%  { transform: translate(50vw, 16px) rotate(5deg); }
+  75%  { transform: translate(80vw, -20px) rotate(-4deg); }
+  100% { transform: translate(112vw, 6px) rotate(3deg); }
+}
+@keyframes aleteo { from { transform: scaleY(1); } to { transform: scaleY(-.45); } }
+
+/* Telarañas */
+.telarana { position: absolute; pointer-events: none; }
+.telarana svg { display: block; width: 100%; height: auto; }
+.telarana-portada { top: 0; right: calc(50% - 50vw); width: 170px; color: rgba(226, 216, 242, .3); transform: scaleX(-1); z-index: 1; }
+.pergamino-interior { position: relative; }
+.telarana-pergamino { top: 0; left: 0; width: 130px; color: rgba(74, 54, 32, .32); }
+
+/* Araña colgando de la telaraña de la portada */
+.arana { position: absolute; top: 0; left: 36%; width: 28px; height: 0; color: #0a0710; }
+.arana::before {
+  content: ""; position: absolute; top: 0; left: 50%; width: 1px; height: 110px;
+  background: rgba(226, 216, 242, .45); transform-origin: top;
+  animation: hilo 5s ease-in-out infinite alternate;
+}
+.arana svg { position: absolute; top: 0; left: 0; width: 28px; filter: drop-shadow(0 0 1.5px rgba(255, 150, 70, .6)); animation: colgar 5s ease-in-out infinite alternate; }
+@keyframes hilo { from { transform: scaleY(.5); } to { transform: scaleY(1); } }
+@keyframes colgar { from { transform: translateY(46px); } to { transform: translateY(101px); } }
+
+/* La calabaza del colista en la clasificación general */
+.calabaza { vertical-align: -3px; margin-left: .3rem; }
+.calabaza svg { width: 1.15em; height: 1.15em; display: block; filter: drop-shadow(0 0 4px rgba(255, 150, 60, .55)); }
+
+@media (max-width: 760px) {
+  .telarana-portada { width: 120px; }
+  .halloween .portada-escudo::before { right: -14%; }
+}
+
+/* Sin animaciones para quien las tenga desactivadas: murciélagos quietos */
+@media (prefers-reduced-motion: reduce) {
+  .murcielago, .ala, .arana::before, .arana svg { animation: none; }
+  .murcielago:nth-child(1) { left: 6%; }
+  .murcielago:nth-child(2) { left: 70%; }
+  .murcielago:nth-child(3) { left: 44%; }
+  .murcielago:nth-child(4) { left: 88%; }
+  .murcielago:nth-child(5) { left: 26%; }
+  .murcielago:nth-child(6) { left: 58%; }
+  .arana svg { transform: translateY(70px); }
+}

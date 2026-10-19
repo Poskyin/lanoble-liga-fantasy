@@ -164,8 +164,13 @@ function pintarGeneral(c) {
     ? `Las jornadas ${[...c.provisionales].join(' y ')} aún pueden cambiar: hay partidos aplazados.`
     : `Tras ${c.ultima} jornadas.`;
 
+  const colista = fin.orden.at(-1);
   $('#tabla-general tbody').innerHTML = fin.orden.map(o => {
     const s = c.stats.get(o.m.n);
+    // En modo Halloween, el último de la general se lleva la calabaza (solo se ve con el modo activo).
+    const calabaza = o === colista && fin.orden.length > 1
+      ? ` <span class="calabaza" role="img" aria-label="Calabaza para el colista" title="Se lleva la calabaza: último de la general">${CALABAZA_SVG}</span>`
+      : '';
     let mov = '';
     if (previa) {
       const antes = previa.orden.find(p => p.m.n === o.m.n).rank;
@@ -182,7 +187,7 @@ function pintarGeneral(c) {
     const media = s.jugadas ? o.total / s.jugadas : 0;
     return `<tr>
       <td class="pos num">${o.rank}${mov}</td>
-      <td>${celdaManager(o.m)}</td>
+      <td>${celdaManager(o.m, calabaza)}</td>
       <td class="num puntos">${o.total}</td>
       <td class="num ocultable">${nf.format(media)}</td>
       <td class="num">${s.ganadas}</td>
@@ -209,21 +214,21 @@ function pintarEvolucion(c) {
 
   let s = `<svg viewBox="0 0 ${W} ${Ht}" role="img" aria-label="Puesto de cada mánager en la general tras cada jornada">`;
   for (let r = 1; r <= N; r++) {
-    s += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(r)}" y2="${y(r)}" stroke="#2b3d63" stroke-width="1" stroke-dasharray="2 4"/>`;
+    s += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(r)}" y2="${y(r)}" style="stroke:var(--azur-linea)" stroke-width="1" stroke-dasharray="2 4"/>`;
     s += `<text x="${m.l - 12}" y="${y(r) + 5}" text-anchor="end" font-size="13">${r}.º</text>`;
   }
   H.forEach((h, i) => {
     const prov = c.provisionales.has(h.j);
     s += `<text x="${x(i)}" y="${Ht - 10}" text-anchor="middle" font-size="13"${prov ? ' font-style="italic"' : ''}>J${h.j}${prov ? '*' : ''}</text>`;
   });
-  s += `<line id="cruz" x1="0" x2="0" y1="${m.t - 8}" y2="${Ht - m.b + 6}" stroke="#e6d197" stroke-width="1" opacity="0"/>`;
+  s += `<line id="cruz" x1="0" x2="0" y1="${m.t - 8}" y2="${Ht - m.b + 6}" style="stroke:var(--oro-claro)" stroke-width="1" opacity="0"/>`;
   // líneas: primero las de abajo para que el líder quede encima
   const finales = H.at(-1).orden.slice().reverse();
   for (const o of finales) {
     const pts = H.map((h, i) => `${x(i)},${y(rankDe(h, o.m.n).rank)}`);
     s += `<polyline points="${pts.join(' ')}" fill="none" stroke="${o.m.hex}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
     H.forEach((h, i) => {
-      s += `<circle cx="${x(i)}" cy="${y(rankDe(h, o.m.n).rank)}" r="4.5" fill="${o.m.hex}" stroke="#131d31" stroke-width="2"/>`;
+      s += `<circle cx="${x(i)}" cy="${y(rankDe(h, o.m.n).rank)}" r="4.5" fill="${o.m.hex}" style="stroke:var(--azur)" stroke-width="2"/>`;
     });
     s += `<text x="${x(H.length - 1) + 10}" y="${y(o.rank) + 5}" font-size="14" style="fill:var(--texto)">${esc(o.m.corto)}${estrecho ? '' : ` <tspan style="fill:var(--texto-3)">${o.total}</tspan>`}</text>`;
   }
@@ -568,6 +573,79 @@ function prepararShiny() {
   });
 }
 
+// ---------- Modo Halloween ----------
+// El script del <head> decide si estamos en fechas (clase epoca-halloween) y si está encendido (clase halloween).
+// Aquí se añaden el botón, los murciélagos y las telarañas. El aspecto está en assets/halloween.css.
+const CALABAZA_SVG = `<svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true" focusable="false">
+  <path d="M15.5 9c-.2-3 .8-5.6 3.6-7" fill="none" stroke="#56772c" stroke-width="2.6" stroke-linecap="round"/>
+  <ellipse cx="10.4" cy="19.5" rx="8.4" ry="10" fill="#d4621c"/>
+  <ellipse cx="21.6" cy="19.5" rx="8.4" ry="10" fill="#d4621c"/>
+  <ellipse cx="16" cy="19.5" rx="6.8" ry="10.6" fill="#f08a3a"/>
+  <path class="cara" d="M8.6 18l3.2-4.4 2.2 4.4zM18 18l2.2-4.4 3.2 4.4zM8.4 21.8h15.2l-2.3 4.3-2.1-2-2.8 2.6-2.8-2.6-2.1 2z"/>
+</svg>`;
+
+function telarana(tam) {
+  const radios = 7, anillos = 6, ang = i => (Math.PI / 2) * (i / (radios - 1));
+  const p = (r, a) => `${(r * Math.cos(a)).toFixed(1)} ${(r * Math.sin(a)).toFixed(1)}`;
+  let d = '';
+  for (let i = 0; i < radios; i++) d += `M0 0L${p(tam, ang(i))}`;
+  for (let k = 1; k <= anillos; k++) {
+    const r = tam * (k / (anillos + 0.4));
+    for (let i = 0; i < radios - 1; i++) d += `M${p(r, ang(i))}Q${p(r * 0.84, (ang(i) + ang(i + 1)) / 2)} ${p(r, ang(i + 1))}`;
+  }
+  return `<svg viewBox="0 0 ${tam} ${tam}" aria-hidden="true" focusable="false"><path d="${d}" fill="none" stroke="currentColor" stroke-width="1"/></svg>`;
+}
+
+const MURCIELAGO_SVG = `<svg viewBox="0 0 100 56" aria-hidden="true" focusable="false"><path d="M50 30L47.5 25 46 31C38 26 22 12 3 6C8 16 10 24 9 32C15 28 21 29 24 35C29 31 35 33 37 40C41 37 45 39 46 44C48 47 49 50 50 52C51 50 52 47 54 44C55 39 59 37 63 40C65 33 71 31 76 35C79 29 85 28 91 32C90 24 92 16 97 6C78 12 62 26 54 31L52.5 25Z"/></svg>`;
+
+const ARANA_SVG = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+  <path d="M9 11 4 7l-2 3M9 13l-5 0-2 3M9.5 15l-4 3-1 4M10.5 16l-2 4M15 11l5-4 2 3M15 13h5l2 3M14.5 15l4 3 1 4M13.5 16l2 4"/></g>
+  <ellipse cx="12" cy="10" rx="2.6" ry="2.4" fill="currentColor"/><ellipse cx="12" cy="15" rx="3.6" ry="4.2" fill="currentColor"/></svg>`;
+
+function prepararHalloween() {
+  const raiz = document.documentElement;
+  if (!raiz.classList.contains('epoca-halloween')) return;
+  const boton = $('#boton-halloween');
+  const pintarBoton = () => {
+    const activo = raiz.classList.contains('halloween');
+    boton.setAttribute('aria-pressed', String(activo));
+    boton.title = activo ? 'Modo Halloween activado. Pulsa para apagarlo' : 'Modo Halloween apagado. Pulsa para encenderlo';
+  };
+  boton.innerHTML = CALABAZA_SVG;
+  boton.hidden = false;
+  pintarBoton();
+  boton.addEventListener('click', () => {
+    const activo = raiz.classList.toggle('halloween');
+    $('#color-tema').content = activo ? '#110c18' : '#131d31';
+    try { localStorage.setItem('nlf-halloween', activo ? 'si' : 'no'); } catch (e) { /* sin almacenamiento: solo dura esta visita */ }
+    pintarBoton();
+  });
+
+  // Murciélagos en la portada: tamaño, altura, duración y retraso de cada uno.
+  const vuelos = [[66, 8, 17, 0], [44, 24, 23, 4], [56, 3, 20, 9], [36, 33, 27, 2], [50, 15, 19, 13], [32, 42, 31, 7]];
+  const bandada = document.createElement('div');
+  bandada.className = 'murcielagos';
+  bandada.setAttribute('aria-hidden', 'true');
+  bandada.innerHTML = vuelos.map(([t, y, dur, ret]) =>
+    `<span class="murcielago" style="--t:${t}px;--y:${y}%;--dur:${dur}s;--ret:-${ret}s"><span class="ala">${MURCIELAGO_SVG}</span></span>`).join('');
+  $('.portada').prepend(bandada);
+
+  // Telaraña con araña en la esquina de la portada, y otra en el pergamino de la Carta Magna.
+  const red = document.createElement('div');
+  red.className = 'telarana telarana-portada';
+  red.setAttribute('aria-hidden', 'true');
+  red.innerHTML = `${telarana(170)}<span class="arana">${ARANA_SVG}</span>`;
+  $('.portada').append(red);
+  const pergamino = $('.pergamino-interior');
+  if (pergamino) {
+    const red2 = document.createElement('div');
+    red2.className = 'telarana telarana-pergamino';
+    red2.setAttribute('aria-hidden', 'true');
+    red2.innerHTML = telarana(130);
+    pergamino.prepend(red2);
+  }
+}
+
 // ---------- Arranque ----------
 // Cada sección se pinta por separado: si una falla, las demás siguen apareciendo.
 function seguro(nombre, fn) {
@@ -575,6 +653,7 @@ function seguro(nombre, fn) {
 }
 
 (async () => {
+  seguro('halloween', prepararHalloween);
   seguro('shiny', prepararShiny);
   let datos;
   try {

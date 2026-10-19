@@ -5,7 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>La Noble Liga Fantasy</title>
   <meta name="description" content="Clasificación, jornadas, clausulazos y Carta Magna de La Noble Liga Fantasy. Fama, Ambitio, Consilium.">
-  <meta name="theme-color" content="#131d31">
+  <meta name="theme-color" content="#131d31" id="color-tema">
+  <script>
+    // Modo Halloween: se enciende solo del 15 de octubre al 2 de noviembre.
+    // Cada uno puede apagarlo con el botón de la calabaza (se recuerda en su navegador).
+    // ?halloween=1 lo fuerza para probarlo fuera de fechas; ?halloween=0 lo apaga.
+    (function () {
+      var h = new Date(), mes = h.getMonth() + 1, dia = h.getDate();
+      var enFechas = (mes === 10 && dia >= 15) || (mes === 11 && dia <= 2);
+      var q = new URLSearchParams(location.search).get('halloween');
+      var pref = null;
+      try { pref = localStorage.getItem('nlf-halloween'); } catch (e) {}
+      if (!enFechas && q !== '1') return;
+      var activo = q === '1' ? true : q === '0' ? false : pref ? pref === 'si' : true;
+      var raiz = document.documentElement;
+      raiz.classList.add('epoca-halloween');
+      if (activo) {
+        raiz.classList.add('halloween');
+        document.getElementById('color-tema').content = '#110c18';
+      }
+    })();
+  </script>
   <meta property="og:title" content="La Noble Liga Fantasy">
   <meta property="og:description" content="Clasificación, jornadas y clausulazos de la temporada 2026/27.">
   <meta property="og:image" content="/assets/og.jpg">
@@ -16,6 +36,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/styles.css?v=7">
+  <link rel="stylesheet" href="/assets/halloween.css?v=1">
 </head>
 <body>
   <a class="saltar" href="#clasificacion">Ir a la clasificación</a>
@@ -31,6 +52,7 @@
       <a href="#carta-magna">Carta Magna</a>
       <a href="#anexos">Anexos</a>
     </div>
+    <button class="boton-halloween" id="boton-halloween" type="button" aria-pressed="false" aria-label="Modo Halloween" hidden></button>
   </nav>
 
   <header class="portada" id="inicio">
@@ -270,6 +292,6 @@
   </footer>
 
   <div class="tooltip" id="tooltip" role="status" hidden></div>
-  <script src="/assets/app.js?v=7" type="module"></script>
+  <script src="/assets/app.js?v=8" type="module"></script>
 </body>
 </html>
