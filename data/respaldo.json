@@ -919,7 +919,44 @@
       "manager": "Alejandro Antequera",
       "concepto": "Superar el límite de clausulazos",
       "importe": 1
+    },
+    {
+      "fecha": "2026-10-15",
+      "manager": "Ferxo",
+      "concepto": "Superar el límite de clausulazos: 2 clausulazos a Alejandro Antequera, que ya había recibido 4 en la Semana 10 (2 faltas leves)",
+      "importe": 2
     }
   ],
-  "pagos": []
+  "pagos": [
+    {
+      "fecha": "2026-10-20",
+      "manager": "Gabriel Tarcaya",
+      "importe": 3.5,
+      "nota": "Saldado hasta la jornada 9"
+    },
+    {
+      "fecha": "2026-10-20",
+      "manager": "Daniel Almagro",
+      "importe": 2.5,
+      "nota": "Saldado hasta la jornada 9"
+    },
+    {
+      "fecha": "2026-10-20",
+      "manager": "Alejandro Antequera",
+      "importe": 1.5,
+      "nota": "Saldado hasta la jornada 9"
+    },
+    {
+      "fecha": "2026-10-20",
+      "manager": "Ferxo",
+      "importe": 3.5,
+      "nota": "Saldado hasta la jornada 9"
+    },
+    {
+      "fecha": "2026-10-20",
+      "manager": "Nicolás Figueroa",
+      "importe": 2.5,
+      "nota": "Le falta 1 €"
+    }
+  ]
 }
