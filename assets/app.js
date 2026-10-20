@@ -2,7 +2,7 @@
 // y, si falla, de la copia guardada en /data/respaldo.json.
 
 const MIEMBROS = [
-  { n: 1, nombre: 'Alejandro Antequera', corto: 'Alejandro', usuario: 'MrPipita20', color: 'var(--m1)', hex: '#3987e5' },
+  { n: 1, nombre: 'Alejandro Antequera', alias: 'Fútbol Club Los Patos', corto: 'Alejandro', usuario: 'MrPipita20', color: 'var(--m1)', hex: '#3987e5', escudo: '/assets/escudos/patos.webp', escudoGrande: '/assets/escudos/patos-estrella.webp' },
   { n: 2, nombre: 'Daniel Almagro', corto: 'Daniel', usuario: 'Dani88', color: 'var(--m2)', hex: '#d95926' },
   { n: 3, nombre: 'Ferxo', completo: 'Fernando Sánchez López de Rueda', corto: 'Ferxo', usuario: 'Fer2201', color: 'var(--m3)', hex: '#199e70' },
   { n: 4, nombre: 'Gabriel Tarcaya', alias: 'Real Poskyin Balompié', corto: 'Gabriel', usuario: 'Poskyin_RPB', color: 'var(--m4)', hex: '#c98500', escudo: '/assets/escudos/rpb.webp' },
@@ -498,7 +498,7 @@ function pintarMiembros() {
     <span class="ordinal">${m.n}</span>
     <strong>${esc(m.completo || m.nombre)}</strong>
     <span>${[m.completo ? `«${m.nombre}»` : '', m.alias ? `«${m.alias}»` : '', `${m.usuario} en la app`].filter(Boolean).join(', ')}</span>
-    ${m.escudo ? `<img class="miembro-escudo" src="${m.escudo}" alt="Escudo del ${esc(m.alias || m.nombre)}" width="256" height="283" loading="lazy">` : ''}
+    ${m.escudo ? `<img class="miembro-escudo" src="${m.escudoGrande || m.escudo}" alt="Escudo del ${esc(m.alias || m.nombre)}" width="256" height="283" loading="lazy">` : ''}
   </li>`).join('');
 }
 
