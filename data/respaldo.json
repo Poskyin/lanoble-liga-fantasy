@@ -178,37 +178,37 @@
     {
       "jornada": 6,
       "posicion": 1,
-      "usuario": "MrPipita20",
-      "puntos": 63,
-      "provisional": true
+      "usuario": "Fer2201",
+      "puntos": 70,
+      "provisional": false
     },
     {
       "jornada": 6,
       "posicion": 2,
-      "usuario": "Poskyin_RPB",
-      "puntos": 62,
-      "provisional": true
+      "usuario": "MrPipita20",
+      "puntos": 67,
+      "provisional": false
     },
     {
       "jornada": 6,
       "posicion": 3,
-      "usuario": "Dani88",
-      "puntos": 61,
-      "provisional": true
+      "usuario": "Poskyin_RPB",
+      "puntos": 65,
+      "provisional": false
     },
     {
       "jornada": 6,
       "posicion": 4,
-      "usuario": "nikiscossj",
-      "puntos": 56,
-      "provisional": true
+      "usuario": "Dani88",
+      "puntos": 65,
+      "provisional": false
     },
     {
       "jornada": 6,
       "posicion": 5,
-      "usuario": "Fer2201",
-      "puntos": 49,
-      "provisional": true
+      "usuario": "nikiscossj",
+      "puntos": 56,
+      "provisional": false
     },
     {
       "jornada": 7,
@@ -313,6 +313,41 @@
       "posicion": 5,
       "usuario": "nikiscossj",
       "puntos": 59,
+      "provisional": false
+    },
+    {
+      "jornada": 10,
+      "posicion": 1,
+      "usuario": "Fer2201",
+      "puntos": 85,
+      "provisional": false
+    },
+    {
+      "jornada": 10,
+      "posicion": 2,
+      "usuario": "nikiscossj",
+      "puntos": 77,
+      "provisional": false
+    },
+    {
+      "jornada": 10,
+      "posicion": 3,
+      "usuario": "Poskyin_RPB",
+      "puntos": 72,
+      "provisional": false
+    },
+    {
+      "jornada": 10,
+      "posicion": 4,
+      "usuario": "MrPipita20",
+      "puntos": 64,
+      "provisional": false
+    },
+    {
+      "jornada": 10,
+      "posicion": 5,
+      "usuario": "Dani88",
+      "puntos": 37,
       "provisional": false
     }
   ],

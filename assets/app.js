@@ -161,7 +161,7 @@ function pintarGeneral(c) {
   if (!fin) return;
   const lider = fin.orden[0].total;
   $('#nota-provisional').textContent = c.provisionales.size
-    ? `Las jornadas ${[...c.provisionales].join(' y ')} aún pueden cambiar: hay partidos aplazados.`
+    ? (c.provisionales.size > 1 ? `Las jornadas ${[...c.provisionales].join(' y ')} aún pueden cambiar` : `La jornada ${[...c.provisionales][0]} aún puede cambiar`) + ': hay partidos aplazados.'
     : `Tras ${c.ultima} jornadas.`;
 
   const colista = fin.orden.at(-1);
@@ -447,7 +447,7 @@ function pintarTesoreria(c, datos) {
     <td class="num">${euros(Math.max(0, suma('debe')))}</td>
   </tr>`;
   $('#nota-provisional-multas').textContent = c.provisionales.size
-    ? `Las jornadas ${[...c.provisionales].join(' y ')} no cuentan hasta que sean definitivas.` : '';
+    ? (c.provisionales.size > 1 ? `Las jornadas ${[...c.provisionales].join(' y ')} no cuentan hasta que sean definitivas.` : `La jornada ${[...c.provisionales][0]} no cuenta hasta que sea definitiva.`) : '';
 
   const cuando = x => x.jornada ? `J${x.jornada}` : x.fecha ? limpiar(fFecha.format(deMadrid(x.fecha))) : '–';
   const extra = [
