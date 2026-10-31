@@ -59,8 +59,16 @@ python3 scripts/anexos_pdf.py
 
 Numeración: «Modificación xx/ddmmY» (número de orden, día, mes y último dígito del año), «Jurisprudencia NN» y «Votación NN».
 
-## Modo Halloween
+## Modos de temporada
 
-Se enciende solo del 15 de octubre al 2 de noviembre: noche morada, calabaza en vez de oro, luna tras el escudo, murciélagos, telarañas y una calabaza para el colista de la general. Cada uno puede apagarlo con el botón de la calabaza de la barra (se recuerda en su navegador). Para verlo fuera de fechas: `?halloween=1`.
+### Halloween
+
+Se enciende solo del 15 al 31 de octubre: noche morada, calabaza en vez de oro, luna tras el escudo, murciélagos, telarañas y una calabaza para el colista de la general. Cada uno puede apagarlo con el botón de la calabaza de la barra (se recuerda en su navegador). Para verlo fuera de fechas: `?halloween=1`.
 
 Está en `assets/halloween.css`, en `prepararHalloween()` de `assets/app.js` y en el script del `<head>` de `index.html`, que es donde se cambian las fechas.
+
+### Navidad
+
+Verde abeto, oro y rojo acebo, nieve cayendo por la portada, estrella de Belén tras el escudo, guirnalda de luces bajo la barra y carbón para el colista de la general. El botón de la estrella aparece en la barra el 1 de noviembre (apagado: cada uno puede encenderlo antes de tiempo) y del 1 de diciembre al 6 de enero el modo se enciende solo para todos. Quien lo apague lo tiene apagado esa temporada (se recuerda en su navegador); al año siguiente vuelve a salir encendido. Para verlo fuera de fechas: `?navidad=1`.
+
+Está en `assets/navidad.css`, en `prepararNavidad()` de `assets/app.js` y en el mismo script del `<head>` de `index.html`.

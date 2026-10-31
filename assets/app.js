@@ -167,9 +167,10 @@ function pintarGeneral(c) {
   const colista = fin.orden.at(-1);
   $('#tabla-general tbody').innerHTML = fin.orden.map(o => {
     const s = c.stats.get(o.m.n);
-    // En modo Halloween, el último de la general se lleva la calabaza (solo se ve con el modo activo).
+    // El último de la general se lleva la calabaza en Halloween y el carbón en Navidad (solo se ven con su modo activo).
     const calabaza = o === colista && fin.orden.length > 1
       ? ` <span class="calabaza" role="img" aria-label="Calabaza para el colista" title="Se lleva la calabaza: último de la general">${CALABAZA_SVG}</span>`
+        + `<span class="carbon" role="img" aria-label="Carbón para el colista" title="Este año le traen carbón: último de la general">${CARBON_SVG}</span>`
       : '';
     let mov = '';
     if (previa) {
@@ -646,6 +647,85 @@ function prepararHalloween() {
   }
 }
 
+// ---------- Modo Navidad ----------
+// El script del <head> decide si estamos en fechas (clase epoca-navidad), si está encendido (clase navidad)
+// y con qué clave se guarda la preferencia (data-clave-navidad). Aquí se añaden el botón, la nieve,
+// la guirnalda y la estrella. El aspecto está en assets/navidad.css.
+const ESTRELLA_SVG = `<svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true" focusable="false">
+  <path d="M16 2.5l3.6 8.6 9.3.8-7.1 6.1 2.2 9.1L16 22.2l-8 4.9 2.2-9.1-7.1-6.1 9.3-.8z" fill="#f1cf5a" stroke="#b9861f" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M16 6.8l2.4 5.7 6.1.5-4.7 4" fill="none" stroke="#fff6d0" stroke-width="1.1" stroke-linecap="round" opacity=".7"/>
+</svg>`;
+
+const ESTRELLA_BELEN_SVG = `<svg viewBox="-50 -50 100 100" aria-hidden="true" focusable="false">
+  <defs><radialGradient id="halo-belen"><stop offset="0" stop-color="#fff8dc" stop-opacity=".9"/><stop offset=".35" stop-color="#f3dc94" stop-opacity=".35"/><stop offset="1" stop-color="#f3dc94" stop-opacity="0"/></radialGradient></defs>
+  <circle r="46" fill="url(#halo-belen)"/>
+  <path d="M0-48L4-4 0 48-4-4zM-30 0L-3-3 30 0-3 3z" fill="#fff6d0"/>
+  <path d="M-16-16L-1-1 16 16 1 1zM16-16L1-1-16 16-1 1z" fill="#f3dc94" opacity=".7"/>
+  <circle r="4.5" fill="#fff"/>
+</svg>`;
+
+const CARBON_SVG = `<svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true" focusable="false">
+  <path d="M5 21l4-8 7-3 8 2 4 7-2 7-9 2-9-2z" fill="#3a3a42" stroke="#9a9aa8" stroke-width="1.1"/>
+  <path d="M9 13l5 6 2-9M16 10l3 9 5-7M14 19l-9 2M19 19l9 0M14 19l5 0M14 19l2 9M19 19l-3 9" fill="none" stroke="#5c5c68" stroke-width=".9"/>
+  <path d="M10.5 15.5l2.5 2.5M20 13.5l2 3" stroke="#d4d4de" stroke-width="1.2" stroke-linecap="round"/>
+</svg>`;
+
+function guirnalda() {
+  // Una fila de bombillas colgando de un cable ondulado, repetida a lo ancho con un patrón.
+  const colores = ['#e2453c', '#f3c94e', '#3fae6a', '#4a8fe0', '#f08bd0'];
+  const luces = colores.map((c, i) => {
+    const x = 12 + i * 24, y = i % 2 ? 9 : 6;
+    return `<g class="luz"><rect x="${x - 1.4}" y="${y - 2}" width="2.8" height="2.6" rx=".6" fill="#2c4a3d"/><ellipse cx="${x}" cy="${y + 4}" rx="2.6" ry="3.8" fill="${c}"/><ellipse cx="${x}" cy="${y + 4}" rx="6" ry="6" fill="${c}" opacity=".18"/></g>`;
+  }).join('');
+  return `<svg aria-hidden="true" focusable="false"><defs><pattern id="patron-guirnalda" width="120" height="18" patternUnits="userSpaceOnUse">
+    <path class="cable" d="M0 3Q6 9 12 4T36 7T60 4T84 7T108 4T120 3"/>${luces}</pattern></defs>
+    <rect width="100%" height="18" fill="url(#patron-guirnalda)"/></svg>`;
+}
+
+function prepararNavidad() {
+  const raiz = document.documentElement;
+  if (!raiz.classList.contains('epoca-navidad')) return;
+  const clave = raiz.dataset.claveNavidad || 'nlf-navidad';
+  const boton = $('#boton-navidad');
+  const pintarBoton = () => {
+    const activo = raiz.classList.contains('navidad');
+    boton.setAttribute('aria-pressed', String(activo));
+    boton.title = activo ? 'Modo Navidad activado. Pulsa para apagarlo' : 'Modo Navidad apagado. Pulsa para encenderlo';
+  };
+  boton.innerHTML = ESTRELLA_SVG;
+  boton.hidden = false;
+  pintarBoton();
+  boton.addEventListener('click', () => {
+    const activo = raiz.classList.toggle('navidad');
+    $('#color-tema').content = activo ? '#0c1d17' : '#131d31';
+    try { localStorage.setItem(clave, activo ? 'si' : 'no'); } catch (e) { /* sin almacenamiento: solo dura esta visita */ }
+    pintarBoton();
+  });
+
+  // Nieve en la portada: posición, tamaño, opacidad, duración, retraso y vaivén de cada copo.
+  const copos = Array.from({ length: 34 }, (_, i) => {
+    const r = n => ((Math.sin((i + 1) * n) + 1) / 2); // pseudoaleatorio fijo, igual en cada visita
+    return `<span class="copo" style="--x:${(r(12.9) * 100).toFixed(1)}%;--t:${(2 + r(7.3) * 4).toFixed(1)}px;--o:${(.45 + r(3.1) * .5).toFixed(2)};--dur:${(9 + r(5.7) * 10).toFixed(1)}s;--ret:-${(r(9.4) * 18).toFixed(1)}s;--vaiven:${((r(4.2) - .5) * 60).toFixed(0)}px;--quieto:${(r(2.6) * 90).toFixed(0)}%"></span>`;
+  }).join('');
+  const nieve = document.createElement('div');
+  nieve.className = 'nieve';
+  nieve.setAttribute('aria-hidden', 'true');
+  nieve.innerHTML = copos;
+  $('.portada').prepend(nieve);
+
+  // Estrella de Belén detrás del escudo y guirnalda de luces bajo la barra.
+  const estrella = document.createElement('div');
+  estrella.className = 'estrella-belen';
+  estrella.setAttribute('aria-hidden', 'true');
+  estrella.innerHTML = ESTRELLA_BELEN_SVG;
+  $('.portada-escudo').prepend(estrella);
+  const luces = document.createElement('div');
+  luces.className = 'guirnalda';
+  luces.setAttribute('aria-hidden', 'true');
+  luces.innerHTML = guirnalda();
+  $('.barra').append(luces);
+}
+
 // ---------- Arranque ----------
 // Cada sección se pinta por separado: si una falla, las demás siguen apareciendo.
 function seguro(nombre, fn) {
@@ -654,6 +734,7 @@ function seguro(nombre, fn) {
 
 (async () => {
   seguro('halloween', prepararHalloween);
+  seguro('navidad', prepararNavidad);
   seguro('shiny', prepararShiny);
   let datos;
   try {
