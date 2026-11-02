@@ -1,6 +1,6 @@
 /* Modo Halloween.
    Solo actúa cuando <html> tiene la clase "halloween" (la pone el script del <head>
-   del 15 de octubre al 2 de noviembre, o el botón de la calabaza).
+   del 15 al 31 de octubre, o el botón de la calabaza).
    Para quitarlo del todo basta con borrar este archivo, su <link> y su <script> en index.html. */
 
 /* Botón de la calabaza (solo aparece en fechas) */

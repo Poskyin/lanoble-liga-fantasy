@@ -7,23 +7,37 @@
   <meta name="description" content="Clasificación, jornadas, clausulazos y Carta Magna de La Noble Liga Fantasy. Fama, Ambitio, Consilium.">
   <meta name="theme-color" content="#131d31" id="color-tema">
   <script>
-    // Modo Halloween: se enciende solo del 15 de octubre al 2 de noviembre.
-    // Cada uno puede apagarlo con el botón de la calabaza (se recuerda en su navegador).
-    // ?halloween=1 lo fuerza para probarlo fuera de fechas; ?halloween=0 lo apaga.
+    // Modos de temporada. Cada uno se recuerda en el navegador de quien lo enciende o apaga.
+    // Halloween: del 15 al 31 de octubre, encendido por defecto (botón de la calabaza).
+    // Navidad: el botón de la estrella aparece el 1 de noviembre (apagado por defecto)
+    //   y del 1 de diciembre al 6 de enero se enciende solo.
+    // ?halloween=1 / ?navidad=1 los fuerzan para probarlos fuera de fechas; =0 los apaga.
     (function () {
       var h = new Date(), mes = h.getMonth() + 1, dia = h.getDate();
-      var enFechas = (mes === 10 && dia >= 15) || (mes === 11 && dia <= 2);
-      var q = new URLSearchParams(location.search).get('halloween');
-      var pref = null;
-      try { pref = localStorage.getItem('nlf-halloween'); } catch (e) {}
-      if (!enFechas && q !== '1') return;
-      var activo = q === '1' ? true : q === '0' ? false : pref ? pref === 'si' : true;
-      var raiz = document.documentElement;
-      raiz.classList.add('epoca-halloween');
-      if (activo) {
-        raiz.classList.add('halloween');
-        document.getElementById('color-tema').content = '#110c18';
+      var q = new URLSearchParams(location.search);
+      var raiz = document.documentElement, color = document.getElementById('color-tema');
+      function leer(clave) { try { return localStorage.getItem(clave); } catch (e) { return null; } }
+      function decidir(param, clave, porDefecto) {
+        var v = q.get(param), pref = leer(clave);
+        return v === '1' ? true : v === '0' ? false : pref ? pref === 'si' : porDefecto;
       }
+
+      if ((mes === 10 && dia >= 15) || q.get('halloween') === '1') {
+        raiz.classList.add('epoca-halloween');
+        if (decidir('halloween', 'nlf-halloween', true)) { raiz.classList.add('halloween'); color.content = '#110c18'; }
+        return;
+      }
+
+      var plena = mes === 12 || (mes === 1 && dia <= 6);
+      var previa = mes === 11;
+      if (!plena && !previa && q.get('navidad') !== '1') return;
+      // La preferencia va por temporada (la de diciembre) y aparte para noviembre,
+      // así quien lo apagó el año pasado o lo probó en noviembre lo vuelve a ver encendido en diciembre.
+      var anyo = mes === 1 ? h.getFullYear() - 1 : h.getFullYear();
+      var clave = 'nlf-navidad-' + anyo + (previa ? '-previa' : '');
+      raiz.classList.add('epoca-navidad');
+      raiz.dataset.claveNavidad = clave;
+      if (decidir('navidad', clave, plena)) { raiz.classList.add('navidad'); color.content = '#0c1d17'; }
     })();
   </script>
   <meta property="og:title" content="La Noble Liga Fantasy">
@@ -36,7 +50,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/styles.css?v=7">
-  <link rel="stylesheet" href="/assets/halloween.css?v=1">
+  <link rel="stylesheet" href="/assets/halloween.css?v=2">
+  <link rel="stylesheet" href="/assets/navidad.css?v=1">
 </head>
 <body>
   <a class="saltar" href="#clasificacion">Ir a la clasificación</a>
@@ -53,6 +68,7 @@
       <a href="#anexos">Anexos</a>
     </div>
     <button class="boton-halloween" id="boton-halloween" type="button" aria-pressed="false" aria-label="Modo Halloween" hidden></button>
+    <button class="boton-navidad" id="boton-navidad" type="button" aria-pressed="false" aria-label="Modo Navidad" hidden></button>
   </nav>
 
   <header class="portada" id="inicio">
@@ -292,6 +308,6 @@
   </footer>
 
   <div class="tooltip" id="tooltip" role="status" hidden></div>
-  <script src="/assets/app.js?v=10" type="module"></script>
+  <script src="/assets/app.js?v=11" type="module"></script>
 </body>
 </html>
