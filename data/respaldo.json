@@ -384,6 +384,41 @@
       "usuario": "Dani88",
       "puntos": 56,
       "provisional": false
+    },
+    {
+      "jornada": 12,
+      "posicion": 1,
+      "usuario": "Poskyin_RPB",
+      "puntos": 78,
+      "provisional": false
+    },
+    {
+      "jornada": 12,
+      "posicion": 2,
+      "usuario": "Fer2201",
+      "puntos": 75,
+      "provisional": false
+    },
+    {
+      "jornada": 12,
+      "posicion": 3,
+      "usuario": "MrPipita20",
+      "puntos": 71,
+      "provisional": false
+    },
+    {
+      "jornada": 12,
+      "posicion": 4,
+      "usuario": "nikiscossj",
+      "puntos": 65,
+      "provisional": false
+    },
+    {
+      "jornada": 12,
+      "posicion": 5,
+      "usuario": "Dani88",
+      "puntos": 45,
+      "provisional": false
     }
   ],
   "clausulazos": [
@@ -392,7 +427,7 @@
       "comprador": "Gabriel Tarcaya",
       "vendedor": "Alejandro Antequera",
       "jugador": "Roberto",
-      "importe": 51.0,
+      "importe": 51,
       "exonera": false,
       "tipo": "Clausulazo",
       "periodo": "Semana 8"
@@ -402,7 +437,7 @@
       "comprador": "Gabriel Tarcaya",
       "vendedor": "Ferxo",
       "jugador": "Yoel Lago",
-      "importe": 11.0,
+      "importe": 11,
       "exonera": false,
       "tipo": "Clausulazo",
       "periodo": "Semana 8"
@@ -522,7 +557,7 @@
       "comprador": "Daniel Almagro",
       "vendedor": "Gabriel Tarcaya",
       "jugador": "Zabiri",
-      "importe": 28.0,
+      "importe": 28,
       "exonera": false,
       "tipo": "Clausulazo",
       "periodo": "Semana 9"
@@ -542,7 +577,7 @@
       "comprador": "Nicolás Figueroa",
       "vendedor": "Ferxo",
       "jugador": "Deossa",
-      "importe": 13.0,
+      "importe": 13,
       "exonera": false,
       "tipo": "Clausulazo",
       "periodo": "Semana 9"
@@ -552,7 +587,7 @@
       "comprador": "Ferxo",
       "vendedor": "Alejandro Antequera",
       "jugador": "Pedrosa",
-      "importe": 4.0,
+      "importe": 4,
       "exonera": false,
       "tipo": "Clausulazo",
       "periodo": "Semana 9"
@@ -612,7 +647,7 @@
       "comprador": "Nicolás Figueroa",
       "vendedor": "Daniel Almagro",
       "jugador": "Llorenc",
-      "importe": 1.0,
+      "importe": 1,
       "exonera": false,
       "tipo": "Clausulazo",
       "periodo": "Semana 9"
@@ -652,337 +687,537 @@
       "comprador": "Gabriel Tarcaya",
       "vendedor": "Nicolás Figueroa",
       "jugador": "Lamine Yamal",
-      "importe": 220.0,
+      "importe": 220,
       "exonera": false,
       "tipo": "Clausulazo",
       "periodo": "Semana 10"
+    },
+    {
+      "fecha": "2026-10-14T16:21:11",
+      "comprador": "Daniel Almagro",
+      "vendedor": "Alejandro Antequera",
+      "jugador": "Audero",
+      "importe": 15,
+      "exonera": false,
+      "tipo": "Clausulazo",
+      "periodo": "Semana 10"
+    },
+    {
+      "fecha": "2026-10-14T16:21:45",
+      "comprador": "Daniel Almagro",
+      "vendedor": "Alejandro Antequera",
+      "jugador": "Llorente",
+      "importe": 71,
+      "exonera": false,
+      "tipo": "Clausulazo",
+      "periodo": "Semana 10"
+    },
+    {
+      "fecha": "2026-10-14T16:22:13",
+      "comprador": "Daniel Almagro",
+      "vendedor": "Alejandro Antequera",
+      "jugador": "Raúl García de Haro",
+      "importe": 1.5,
+      "exonera": false,
+      "tipo": "Clausulazo",
+      "periodo": "Semana 10"
+    },
+    {
+      "fecha": "2026-10-14T16:49:33",
+      "comprador": "Daniel Almagro",
+      "vendedor": "Nicolás Figueroa",
+      "jugador": "Diomande",
+      "importe": 93,
+      "exonera": false,
+      "tipo": "Clausulazo",
+      "periodo": "Semana 10"
+    },
+    {
+      "fecha": "2026-10-14T16:51:13",
+      "comprador": "Nicolás Figueroa",
+      "vendedor": "Ferxo",
+      "jugador": "Brugue",
+      "importe": 6.6,
+      "exonera": false,
+      "tipo": "Clausulazo",
+      "periodo": "Semana 10"
+    },
+    {
+      "fecha": "2026-10-14T16:51:56",
+      "comprador": "Alejandro Antequera",
+      "vendedor": "Ferxo",
+      "jugador": "Cardoso",
+      "importe": 6.3,
+      "exonera": false,
+      "tipo": "Clausulazo",
+      "periodo": "Semana 10"
+    },
+    {
+      "fecha": "2026-10-17T19:33:20",
+      "comprador": "Gabriel Tarcaya",
+      "vendedor": "Nicolás Figueroa",
+      "jugador": "Ibañez",
+      "importe": 18.5,
+      "exonera": false,
+      "tipo": "Clausulazo",
+      "periodo": "Semana 11"
+    },
+    {
+      "fecha": "2026-10-18T19:22:37",
+      "comprador": "Nicolás Figueroa",
+      "vendedor": "Ferxo",
+      "jugador": "Mario Soriano",
+      "importe": 44,
+      "exonera": false,
+      "tipo": "Clausulazo",
+      "periodo": "Semana 11"
+    },
+    {
+      "fecha": "2026-10-20T15:46:41",
+      "comprador": "Gabriel Tarcaya",
+      "vendedor": "Alejandro Antequera",
+      "jugador": "Morcillo",
+      "importe": 2.4,
+      "exonera": false,
+      "tipo": "Clausulazo",
+      "periodo": "Semana 11"
+    },
+    {
+      "fecha": "2026-10-20T23:32:31",
+      "comprador": "Alejandro Antequera",
+      "vendedor": "Ferxo",
+      "jugador": "Pedrosa",
+      "importe": 4.1,
+      "exonera": false,
+      "tipo": "Clausulazo",
+      "periodo": "Semana 11"
+    },
+    {
+      "fecha": "2026-10-21T09:37:13",
+      "comprador": "Nicolás Figueroa",
+      "vendedor": "Daniel Almagro",
+      "jugador": "Flick",
+      "importe": 4.9,
+      "exonera": false,
+      "tipo": "Clausulazo",
+      "periodo": "Semana 11"
+    },
+    {
+      "fecha": "2026-10-21T09:37:35",
+      "comprador": "Daniel Almagro",
+      "vendedor": "Gabriel Tarcaya",
+      "jugador": "Simeone",
+      "importe": 1.5,
+      "exonera": false,
+      "tipo": "Clausulazo",
+      "periodo": "Semana 11"
+    },
+    {
+      "fecha": "2026-10-21T16:58:00",
+      "comprador": "Gabriel Tarcaya",
+      "vendedor": "Ferxo",
+      "jugador": "Paredes",
+      "importe": 21,
+      "exonera": false,
+      "tipo": "Clausulazo",
+      "periodo": "Semana 11"
+    },
+    {
+      "fecha": "2026-10-28T16:18:25",
+      "comprador": "Gabriel Tarcaya",
+      "vendedor": "Alejandro Antequera",
+      "jugador": "Fort",
+      "importe": 2.2,
+      "exonera": false,
+      "tipo": "Clausulazo",
+      "periodo": "Semana 12"
+    },
+    {
+      "fecha": "2026-10-28T16:20:16",
+      "comprador": "Nicolás Figueroa",
+      "vendedor": "Daniel Almagro",
+      "jugador": "diomandi",
+      "importe": 103,
+      "exonera": false,
+      "tipo": "Clausulazo",
+      "periodo": "Semana 12"
+    },
+    {
+      "fecha": "2026-10-28T16:27:06",
+      "comprador": "Nicolás Figueroa",
+      "vendedor": "Gabriel Tarcaya",
+      "jugador": "dituro",
+      "importe": 12.1,
+      "exonera": false,
+      "tipo": "Compraventa",
+      "periodo": "Semana 12"
+    },
+    {
+      "fecha": "2026-10-28T16:28:40",
+      "comprador": "Ferxo",
+      "vendedor": "Nicolás Figueroa",
+      "jugador": "lemar",
+      "importe": 11.1,
+      "exonera": true,
+      "tipo": "Clausulazo",
+      "periodo": "Semana 12"
+    },
+    {
+      "fecha": "2026-11-01T16:05:59",
+      "comprador": "Gabriel Tarcaya",
+      "vendedor": "Daniel Almagro",
+      "jugador": "Satriano",
+      "importe": 18,
+      "exonera": false,
+      "tipo": "Clausulazo",
+      "periodo": "Semana 13"
+    },
+    {
+      "fecha": "2026-11-01T16:06:14",
+      "comprador": "Gabriel Tarcaya",
+      "vendedor": "Ferxo",
+      "jugador": "Nsongo",
+      "importe": 10.5,
+      "exonera": false,
+      "tipo": "Clausulazo",
+      "periodo": "Semana 13"
+    },
+    {
+      "fecha": "2026-11-03T17:57:19",
+      "comprador": "Gabriel Tarcaya",
+      "vendedor": "Daniel Almagro",
+      "jugador": "Llorente",
+      "importe": 71,
+      "exonera": false,
+      "tipo": "Clausulazo",
+      "periodo": "Semana 13"
     }
   ],
   "periodos": [
     {
       "periodo": "Semana 1",
-      "inicio": "2026-08-07T21:00",
-      "fin": "2026-08-14T21:00",
+      "inicio": "2026-08-07T21:00:00",
+      "fin": "2026-08-14T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 2",
-      "inicio": "2026-08-14T21:00",
-      "fin": "2026-08-21T21:00",
+      "inicio": "2026-08-14T21:00:00",
+      "fin": "2026-08-21T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 3",
-      "inicio": "2026-08-21T21:00",
-      "fin": "2026-08-28T21:00",
+      "inicio": "2026-08-21T21:00:00",
+      "fin": "2026-08-28T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 4",
-      "inicio": "2026-08-28T21:00",
-      "fin": "2026-09-04T21:00",
+      "inicio": "2026-08-28T21:00:00",
+      "fin": "2026-09-04T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 5",
-      "inicio": "2026-09-04T21:00",
-      "fin": "2026-09-11T21:00",
+      "inicio": "2026-09-04T21:00:00",
+      "fin": "2026-09-11T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 6a",
-      "inicio": "2026-09-11T21:00",
-      "fin": "2026-09-15T21:00",
+      "inicio": "2026-09-11T21:00:00",
+      "fin": "2026-09-15T21:00:00",
       "tipo": "Doble (parte 1)",
       "maximo": 3
     },
     {
       "periodo": "Semana 6b",
-      "inicio": "2026-09-15T21:00",
-      "fin": "2026-09-18T21:00",
+      "inicio": "2026-09-15T21:00:00",
+      "fin": "2026-09-18T21:00:00",
       "tipo": "Doble (parte 2)",
       "maximo": 3
     },
     {
       "periodo": "Semana 7",
-      "inicio": "2026-09-18T21:00",
-      "fin": "2026-09-25T21:00",
+      "inicio": "2026-09-18T21:00:00",
+      "fin": "2026-09-25T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 8",
-      "inicio": "2026-09-25T21:00",
-      "fin": "2026-10-02T21:00",
+      "inicio": "2026-09-25T21:00:00",
+      "fin": "2026-10-02T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 9",
-      "inicio": "2026-10-02T21:00",
-      "fin": "2026-10-09T21:00",
+      "inicio": "2026-10-02T21:00:00",
+      "fin": "2026-10-09T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 10",
-      "inicio": "2026-10-09T21:00",
-      "fin": "2026-10-16T21:00",
+      "inicio": "2026-10-09T21:00:00",
+      "fin": "2026-10-16T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 11",
-      "inicio": "2026-10-16T21:00",
-      "fin": "2026-10-23T21:00",
+      "inicio": "2026-10-16T21:00:00",
+      "fin": "2026-10-23T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 12",
-      "inicio": "2026-10-23T21:00",
-      "fin": "2026-10-30T21:00",
+      "inicio": "2026-10-23T21:00:00",
+      "fin": "2026-10-30T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 13",
-      "inicio": "2026-10-30T21:00",
-      "fin": "2026-11-06T21:00",
+      "inicio": "2026-10-30T21:00:00",
+      "fin": "2026-11-06T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 14",
-      "inicio": "2026-11-06T21:00",
-      "fin": "2026-11-13T21:00",
+      "inicio": "2026-11-06T21:00:00",
+      "fin": "2026-11-13T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 15",
-      "inicio": "2026-11-13T21:00",
-      "fin": "2026-11-20T21:00",
+      "inicio": "2026-11-13T21:00:00",
+      "fin": "2026-11-20T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 16",
-      "inicio": "2026-11-20T21:00",
-      "fin": "2026-11-27T21:00",
+      "inicio": "2026-11-20T21:00:00",
+      "fin": "2026-11-27T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 17",
-      "inicio": "2026-11-27T21:00",
-      "fin": "2026-12-04T21:00",
+      "inicio": "2026-11-27T21:00:00",
+      "fin": "2026-12-04T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 18",
-      "inicio": "2026-12-04T21:00",
-      "fin": "2026-12-11T21:00",
+      "inicio": "2026-12-04T21:00:00",
+      "fin": "2026-12-11T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 19",
-      "inicio": "2026-12-11T21:00",
-      "fin": "2026-12-18T21:00",
+      "inicio": "2026-12-11T21:00:00",
+      "fin": "2026-12-18T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 20",
-      "inicio": "2026-12-18T21:00",
-      "fin": "2026-12-25T21:00",
+      "inicio": "2026-12-18T21:00:00",
+      "fin": "2026-12-25T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 21",
-      "inicio": "2026-12-25T21:00",
-      "fin": "2027-01-01T21:00",
+      "inicio": "2026-12-25T21:00:00",
+      "fin": "2027-01-01T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 22",
-      "inicio": "2027-01-01T21:00",
-      "fin": "2027-01-08T21:00",
+      "inicio": "2027-01-01T21:00:00",
+      "fin": "2027-01-08T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 23",
-      "inicio": "2027-01-08T21:00",
-      "fin": "2027-01-15T21:00",
+      "inicio": "2027-01-08T21:00:00",
+      "fin": "2027-01-15T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 24",
-      "inicio": "2027-01-15T21:00",
-      "fin": "2027-01-22T21:00",
+      "inicio": "2027-01-15T21:00:00",
+      "fin": "2027-01-22T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 25",
-      "inicio": "2027-01-22T21:00",
-      "fin": "2027-01-29T21:00",
+      "inicio": "2027-01-22T21:00:00",
+      "fin": "2027-01-29T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 26",
-      "inicio": "2027-01-29T21:00",
-      "fin": "2027-02-05T21:00",
+      "inicio": "2027-01-29T21:00:00",
+      "fin": "2027-02-05T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 27",
-      "inicio": "2027-02-05T21:00",
-      "fin": "2027-02-12T21:00",
+      "inicio": "2027-02-05T21:00:00",
+      "fin": "2027-02-12T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 28",
-      "inicio": "2027-02-12T21:00",
-      "fin": "2027-02-19T21:00",
+      "inicio": "2027-02-12T21:00:00",
+      "fin": "2027-02-19T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 29",
-      "inicio": "2027-02-19T21:00",
-      "fin": "2027-02-26T21:00",
+      "inicio": "2027-02-19T21:00:00",
+      "fin": "2027-02-26T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 30",
-      "inicio": "2027-02-26T21:00",
-      "fin": "2027-03-05T21:00",
+      "inicio": "2027-02-26T21:00:00",
+      "fin": "2027-03-05T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 31",
-      "inicio": "2027-03-05T21:00",
-      "fin": "2027-03-12T21:00",
+      "inicio": "2027-03-05T21:00:00",
+      "fin": "2027-03-12T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 32",
-      "inicio": "2027-03-12T21:00",
-      "fin": "2027-03-19T21:00",
+      "inicio": "2027-03-12T21:00:00",
+      "fin": "2027-03-19T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 33",
-      "inicio": "2027-03-19T21:00",
-      "fin": "2027-03-26T21:00",
+      "inicio": "2027-03-19T21:00:00",
+      "fin": "2027-03-26T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 34",
-      "inicio": "2027-03-26T21:00",
-      "fin": "2027-04-02T21:00",
+      "inicio": "2027-03-26T21:00:00",
+      "fin": "2027-04-02T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 35",
-      "inicio": "2027-04-02T21:00",
-      "fin": "2027-04-09T21:00",
+      "inicio": "2027-04-02T21:00:00",
+      "fin": "2027-04-09T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 36",
-      "inicio": "2027-04-09T21:00",
-      "fin": "2027-04-16T21:00",
+      "inicio": "2027-04-09T21:00:00",
+      "fin": "2027-04-16T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 37a",
-      "inicio": "2027-04-16T21:00",
-      "fin": "2027-04-20T21:00",
+      "inicio": "2027-04-16T21:00:00",
+      "fin": "2027-04-20T21:00:00",
       "tipo": "Doble (parte 1)",
       "maximo": 3
     },
     {
       "periodo": "Semana 37b",
-      "inicio": "2027-04-20T21:00",
-      "fin": "2027-04-23T21:00",
+      "inicio": "2027-04-20T21:00:00",
+      "fin": "2027-04-23T21:00:00",
       "tipo": "Doble (parte 2)",
       "maximo": 3
     },
     {
       "periodo": "Semana 38",
-      "inicio": "2027-04-23T21:00",
-      "fin": "2027-04-30T21:00",
+      "inicio": "2027-04-23T21:00:00",
+      "fin": "2027-04-30T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 39",
-      "inicio": "2027-04-30T21:00",
-      "fin": "2027-05-07T21:00",
+      "inicio": "2027-04-30T21:00:00",
+      "fin": "2027-05-07T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 40",
-      "inicio": "2027-05-07T21:00",
-      "fin": "2027-05-14T21:00",
+      "inicio": "2027-05-07T21:00:00",
+      "fin": "2027-05-14T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 41",
-      "inicio": "2027-05-14T21:00",
-      "fin": "2027-05-21T21:00",
+      "inicio": "2027-05-14T21:00:00",
+      "fin": "2027-05-21T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 42",
-      "inicio": "2027-05-21T21:00",
-      "fin": "2027-05-28T21:00",
+      "inicio": "2027-05-21T21:00:00",
+      "fin": "2027-05-28T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 43",
-      "inicio": "2027-05-28T21:00",
-      "fin": "2027-06-04T21:00",
+      "inicio": "2027-05-28T21:00:00",
+      "fin": "2027-06-04T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     },
     {
       "periodo": "Semana 44",
-      "inicio": "2027-06-04T21:00",
-      "fin": "2027-06-11T21:00",
+      "inicio": "2027-06-04T21:00:00",
+      "fin": "2027-06-11T21:00:00",
       "tipo": "Normal",
       "maximo": 4
     }
   ],
-  "copiaDe": "2026-11-04",
+  "copiaDe": "2026-11-20",
   "sanciones": [
     {
       "fecha": "",
@@ -991,7 +1226,7 @@
       "importe": 1
     },
     {
-      "fecha": "2026-10-15",
+      "fecha": "2026-10-15T00:00:00",
       "manager": "Ferxo",
       "concepto": "Superar el límite de clausulazos: 2 clausulazos a Alejandro Antequera, que ya había recibido 4 en la Semana 10 (2 faltas leves)",
       "importe": 2
@@ -999,31 +1234,31 @@
   ],
   "pagos": [
     {
-      "fecha": "2026-10-20",
+      "fecha": "2026-10-20T00:00:00",
       "manager": "Gabriel Tarcaya",
       "importe": 3.5,
       "nota": "Saldado hasta la jornada 9"
     },
     {
-      "fecha": "2026-10-20",
+      "fecha": "2026-10-20T00:00:00",
       "manager": "Daniel Almagro",
       "importe": 2.5,
       "nota": "Saldado hasta la jornada 9"
     },
     {
-      "fecha": "2026-10-20",
+      "fecha": "2026-10-20T00:00:00",
       "manager": "Alejandro Antequera",
       "importe": 1.5,
       "nota": "Saldado hasta la jornada 9"
     },
     {
-      "fecha": "2026-10-20",
+      "fecha": "2026-10-20T00:00:00",
       "manager": "Ferxo",
       "importe": 3.5,
       "nota": "Saldado hasta la jornada 9"
     },
     {
-      "fecha": "2026-10-20",
+      "fecha": "2026-10-20T00:00:00",
       "manager": "Nicolás Figueroa",
       "importe": 2.5,
       "nota": "Le falta 1 €"
