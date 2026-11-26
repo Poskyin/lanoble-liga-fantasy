@@ -419,6 +419,41 @@
       "usuario": "Dani88",
       "puntos": 45,
       "provisional": false
+    },
+    {
+      "jornada": 13,
+      "posicion": 1,
+      "usuario": "MrPipita20",
+      "puntos": 88,
+      "provisional": false
+    },
+    {
+      "jornada": 13,
+      "posicion": 2,
+      "usuario": "Dani88",
+      "puntos": 79,
+      "provisional": false
+    },
+    {
+      "jornada": 13,
+      "posicion": 3,
+      "usuario": "Fer2201",
+      "puntos": 72,
+      "provisional": false
+    },
+    {
+      "jornada": 13,
+      "posicion": 4,
+      "usuario": "Poskyin_RPB",
+      "puntos": 71,
+      "provisional": false
+    },
+    {
+      "jornada": 13,
+      "posicion": 5,
+      "usuario": "nikiscossj",
+      "puntos": 66,
+      "provisional": false
     }
   ],
   "clausulazos": [
@@ -1217,7 +1252,7 @@
       "maximo": 4
     }
   ],
-  "copiaDe": "2026-11-20",
+  "copiaDe": "2026-11-26",
   "sanciones": [
     {
       "fecha": "",
